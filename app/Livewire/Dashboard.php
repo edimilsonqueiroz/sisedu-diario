@@ -5,10 +5,10 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
-class LoginController extends Component
+class Dashboard extends Component
 {
     public function render()
     {
-        return view('livewire.login')->title('SISEDU-DIARIO - Login');
+        return view('livewire.dashboard')->title('SISEDU-DIARIO - dashboard');
     }
 }

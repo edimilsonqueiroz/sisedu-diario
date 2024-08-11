@@ -9,5 +9,24 @@
     </head>
     <body class="w-screen h-screen overflow-x-hidden">
         {{ $slot }}
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('openLogout', () => ({
+                    open: false,
+        
+                    toggle() {
+                        const logout = document.getElementById('logout');
+
+                        if(logout.classList.contains('hidden')){
+                            logout.classList.remove('hidden');
+                            logout.classList.add('flex');
+                        }
+
+                        this.open = ! this.open
+                        
+                    },
+                }))
+            })
+        </script>
     </body>
 </html>
