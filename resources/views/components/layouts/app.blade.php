@@ -6,6 +6,7 @@
 
         <title>{{ $title ?? 'Page Title' }}</title>
         @vite(['resources/css/app.css','resources/js/app.js'])
+        @livewire('livewire-ui-modal')
     </head>
     <body class="w-screen h-screen overflow-x-hidden">
         {{ $slot }}
