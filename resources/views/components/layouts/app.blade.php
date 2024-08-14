@@ -6,7 +6,9 @@
 
         <title>{{ $title ?? 'Page Title' }}</title>
         @vite(['resources/css/app.css','resources/js/app.js'])
-        @livewire('livewire-ui-modal')
+        
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <x-livewire-alert::scripts />
     </head>
     <body class="w-screen h-screen overflow-x-hidden">
         {{ $slot }}
@@ -29,5 +31,6 @@
                 }))
             })
         </script>
+        
     </body>
 </html>
