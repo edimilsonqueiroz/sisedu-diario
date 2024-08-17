@@ -15,7 +15,7 @@
 
             <x-modal.modal-lg name="usuario" title="Modal de usuário">
                 <x-slot:body>
-                    Modal de Usuário
+                    <span>Modal de Usuário</span>
                 </x-slot>
                 <x-slot:footer>
                     Footer
@@ -23,7 +23,7 @@
             </x-modal.modal-gl>
             <x-modal.modal-lg name="professor" title="Modal de professor">
                 <x-slot:body>
-                    Modal de professor
+                    <span>Modal de Professor</span>
                 </x-slot>
                 <x-slot:footer>
                     Footer
