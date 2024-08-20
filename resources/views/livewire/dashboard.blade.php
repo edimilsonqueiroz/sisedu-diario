@@ -12,7 +12,7 @@
                     Layout 3
                 </div>
             </div>
-
+            
             <x-modal.modal-lg name="usuario" title="Modal de usuário">
                 <x-slot:body>
                     <span>Modal de Usuário</span>
@@ -21,17 +21,9 @@
                     Footer
                 </x-slot>
             </x-modal.modal-gl>
-            <x-modal.modal-lg name="professor" title="Modal de professor">
-                <x-slot:body>
-                    <span>Modal de Professor</span>
-                </x-slot>
-                <x-slot:footer>
-                    Footer
-                </x-slot>
-            </x-modal.modal-gl>
-
+            
             <button x-data x-on:click="$dispatch('open-modal', { name: 'usuario' })" class="px-3 py-1 m-5 bg-teal-500 max-w-40 text-white rounded">Usuário</button>
-            <button x-data x-on:click="$dispatch('open-modal', { name: 'professor' })" class="px-3 py-1 m-5 bg-teal-500 max-w-40 text-white rounded">Professor</button>
+            
         </div>
     @include('components/footer')
 </div>

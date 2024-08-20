@@ -10,6 +10,9 @@ class Dashboard extends Component
 {
     public function render()
     {
-        return view('livewire.dashboard')->title('SISEDU-DIARIO - dashboard');
+        $page = "Dashboard";
+        return view('livewire.dashboard',[
+            "page" => $page
+        ])->title('SISEDU-DIARIO Dashboard');
     }
 }
