@@ -4,5 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\LoginController;
 use App\Livewire\Dashboard;
 
-Route::get('/', LoginController::class);
-Route::get('/dashboard', Dashboard::class);
+Route::get('/', LoginController::class)->name('login');
+
+Route::prefix('dashboard')->middleware('auth')->group(function(){
+    Route::get('/', Dashboard::class)->name('dashboard');
+});
