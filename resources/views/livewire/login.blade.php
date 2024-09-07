@@ -1,10 +1,10 @@
 <div class="w-full h-full">
    <div class="w-full flex h-full">
-        <div class="w-[60%] md:flex hidden h-full bg-cyan-600">
+        <div class="w-[50%] md:flex hidden h-full bg-cyan-600">
             ....
         </div>
         <div class="flex-1 flex items-center justify-center">
-            <form class="flex flex-col w-full px-5">
+            <form class="flex flex-col w-full px-5 md:px-20">
                 <label>Login</label>
                 <input class="border-2 mb-5 p-2 outline-none rounded-md border-gray-300" type="email" required>
                 <label>Senha</label>
