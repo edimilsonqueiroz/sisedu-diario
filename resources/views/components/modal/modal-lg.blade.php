@@ -11,19 +11,19 @@
  x-transition.duration.200ms
  class="fixed z-50 inset-0">
     <div x-on:click="show = false" class="fixed inset-0 bg-gray-800 opacity-20"></div>
-    <div class="bg-white shadow-md rounded m-auto fixed inset-0 md:max-w-2xl max-w-[96%]" style="max-height: 400px;">
-        <div class="flex flex-col h-full min-h-full">
+    <div class="bg-white shadow-md rounded m-auto fixed inset-0 md:max-w-2xl max-w-[95%]" style="max-height: 400px; min-height: 200px;">
+        <div class="flex h-auto flex-col">
             <div class="h-10 max-h-10 p-3 flex items-center bg-slate-100 rounded-tl rounded-tr">
                 @if(isset($title))
                 <div class="py-3 flex items-center justify-center">{{ $title}}</div>
                 @endif
             </div>
             <div class="flex-1">
-                <div class="h-full p-3 max-h-full flex flex-col">
+                <div class="p-3 h-full flex flex-col">
                     {{ $body }}
                 </div>
             </div>
-            <div class="h-10 max-h-10 p-3 flex items-center rounded-bl rounded-br bg-slate-100">{{ $footer }}</div>
+            <div class="h-10 absolute bottom-0 right-0 left-0 max-h-10 p-3 flex items-center rounded-bl rounded-br bg-slate-100">{{ $footer }}</div>
         </div>
     </div>
 </div>

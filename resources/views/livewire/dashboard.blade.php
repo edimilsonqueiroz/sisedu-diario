@@ -1,6 +1,6 @@
 <div class="w-full h-full min-h-full">
     @include('components/header')
-        <div class="flex w-full h-[1500px] flex-col">
+        <div class="flex w-full flex-col">
             <div class="grid md:grid-cols-3 grid-cols-1 gap-3">
                 <div class="bg-cyan-500 h-28 rounded-md col-span-1">
                     Layout 1
@@ -16,6 +16,7 @@
             <x-modal.modal-lg name="usuario" title="Modal de usuário">
                 <x-slot:body>
                     <span>Modal de Usuário</span>
+                    
                 </x-slot>
                 <x-slot:footer>
                     Footer
