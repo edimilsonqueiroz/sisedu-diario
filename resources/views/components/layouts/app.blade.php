@@ -10,7 +10,7 @@
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <x-livewire-alert::scripts />
     </head>
-    <body class="w-screen h-screen overflow-x-hidden">
+    <body class="w-screen h-screen overflow-hidden bg-slate-200">
         {{ $slot }}
         <script>
             document.addEventListener('alpine:init', () => {

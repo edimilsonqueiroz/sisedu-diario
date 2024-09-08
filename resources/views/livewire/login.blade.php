@@ -1,4 +1,4 @@
-<div class="w-full h-full">
+<div class="w-full h-full bg-white">
    <div class="w-full flex h-full">
         <div class="w-[50%] md:flex hidden items-center justify-center h-full bg-cyan-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-60">
