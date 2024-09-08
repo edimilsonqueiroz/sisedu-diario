@@ -9,9 +9,9 @@
  x-transition.scale.origin.top.right
  x-transition.opacity
  x-transition.duration.200ms
- class="fixed z-50 inset-0">
+ class="fixed z-40 flex items-center justify-center inset-0">
     <div x-on:click="show = false" class="fixed inset-0 bg-gray-800 opacity-20"></div>
-    <div class="bg-white shadow-md rounded m-auto fixed inset-0 md:max-w-2xl max-w-[95%]" style="max-height: 400px; min-height: 200px;">
+    <div class="bg-white shadow-md rounded m-auto absolute z-50 md:max-w-2xl w-[600px]  max-w-[95%]">
         <div class="flex h-auto flex-col">
             <div class="h-10 max-h-10 p-3 flex items-center bg-slate-100 rounded-tl rounded-tr">
                 @if(isset($title))
@@ -23,7 +23,7 @@
                     {{ $body }}
                 </div>
             </div>
-            <div class="h-10 absolute bottom-0 right-0 left-0 max-h-10 p-3 flex items-center rounded-bl rounded-br bg-slate-100">{{ $footer }}</div>
+            <div class="h-10  max-h-10 p-3 flex items-center rounded-bl rounded-br bg-slate-100">{{ $footer }}</div>
         </div>
     </div>
 </div>
