@@ -13,16 +13,35 @@
                 </div>
             </div>
             
-            <x-modal.modal-lg name="usuario" title="Modal de usuário">
+            <x-modal.modal-lg name="modal-lg" title="Modal LG">
                 <x-slot:body>
-                    <span>Modal de Usuário</span>
+                    <span>Modal LG</span>
                 </x-slot>
                 <x-slot:footer>
                     Footer
                 </x-slot>
-            </x-modal.modal-gl>
+            </x-modal.modal-lg>
+            <x-modal.modal-md name="modal-md" title="Modal MD">
+                <x-slot:body>
+                    <span>Modal MD</span>
+                </x-slot>
+                <x-slot:footer>
+                    Footer
+                </x-slot>
+            </x-modal.modal-md>
+            <x-modal.confirmation name="confirmation" title="Modal de Confirmação">
+                <x-slot:body>
+                    <span>Modal Confirmação</span>
+                </x-slot>
+                <x-slot:footer>
+                    Footer
+                </x-slot>
+            </x-modal.confirmation>
+
             
-            <button x-data x-on:click="$dispatch('open-modal', { name: 'usuario' })" class="px-3 py-1 m-5 bg-teal-500 max-w-40 text-white rounded">Usuário</button>
+            <button x-data x-on:click="$dispatch('open-modal', { name: 'modal-lg' })" class="px-3 py-1 m-5 bg-teal-500 max-w-40 text-white rounded">Modal LG</button>
+            <button x-data x-on:click="$dispatch('open-modal', { name: 'modal-md' })" class="px-3 py-1 m-5 bg-teal-500 max-w-40 text-white rounded">Modal MD</button>
+            <button x-data x-on:click="$dispatch('open-modal', { name: 'confirmation' })" class="px-3 py-1 m-5 bg-teal-500 max-w-40 text-white rounded">Modal Confirmação</button>
             
         </div>
     @include('components/footer')
