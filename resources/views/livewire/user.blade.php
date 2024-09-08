@@ -3,8 +3,12 @@
       
       
 <div class="w-full h-full overflow-hidden flex flex-col shadow bg-white p-5 rounded-lg">
-  <div class="w-full mb-5">
+  <div class="w-full flex flex-col-reverse md:flex-row mb-5">
      <input placeholder="Pesquisar" type="text" class="border-2 outline-none rounded px-2 py-1 w-full md:w-[50%] border-gray-300">
+     <div class="md:w-[50%] py-5 md:py-0 flex items-center justify-center md:justify-center">
+        <button x-data x-on:click="$dispatch('open-modal', { name: 'cadastro-usuario' })" class="border-2 border-teal-500 bg-teal-500 rounded-md shadow-md px-2 mx-2"><i class="bi bi-person-fill-add"></i> Novo Usuário</button>
+        <button class="border-2 border-red-400 bg-red-400 rounded-md shadow-md px-2 mx-2"><i class="bi bi-trash"></i> Excluir</button>
+     </div>
   </div>
 <div class="relative w-full bg-slate-50 p-5 overflow-x-auto overflow-y-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -17,19 +21,19 @@
                     </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Product name
+                    Nome
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Color
+                    E-mail
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                    CPF
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Price
+                    Data de Cadastro
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Action
+                    Ação
                 </th>
             </tr>
         </thead>
@@ -54,7 +58,7 @@
                     $2999
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -77,7 +81,7 @@
                     $1999
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -100,7 +104,7 @@
                     $99
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -123,7 +127,7 @@
                     $199
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -146,7 +150,7 @@
                     $2999
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -169,7 +173,7 @@
                     $399
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                  <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -192,7 +196,7 @@
                     $699
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -215,7 +219,7 @@
                     $99
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -238,7 +242,7 @@
                     $79
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -261,7 +265,7 @@
                     $29
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
                 </td>
             </tr>
         </tbody>
@@ -295,4 +299,31 @@
     </nav>
     </div>
    @include('components/footer')
+
+
+   <!--- MODAIS --->
+
+   <x-modal.modal-md name="cadastro-usuario" title="Cadastro de usuário">
+        <form>
+            <x-slot:body>
+                <span>Cadastro de Usuário</span>
+            </x-slot>
+            <x-slot:footer>
+                <button x-data x-on:click="show = false" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md">Fechar</button>
+                <button class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Cadastrar</button>
+            </x-slot>
+        </form>
+    </x-modal.modal-md>
+
+    <x-modal.modal-md name="editar-usuario" title="Editar usuário">
+        <form>
+            <x-slot:body>
+                <span>Editar Usuário</span>
+            </x-slot>
+            <x-slot:footer>
+                <button x-data x-on:click="show = false" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md">Fechar</button>
+                <button class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Editar</button>
+            </x-slot>
+        </form>
+    </x-modal.modal-md>
 </div>
