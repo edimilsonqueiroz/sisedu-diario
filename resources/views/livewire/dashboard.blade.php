@@ -16,13 +16,6 @@
             <x-modal.modal-lg name="usuario" title="Modal de usuário">
                 <x-slot:body>
                     <span>Modal de Usuário</span>
-                    <span>Modal de Usuário</span>
-                    <span>Modal de Usuário</span>
-                    <span>Modal de Usuário</span>
-                    <span>Modal de Usuário</span>
-                    <span>Modal de Usuário</span>
-                    <span>Modal de Usuário</span>
-                    <span>Modal de Usuário</span>
                 </x-slot>
                 <x-slot:footer>
                     Footer

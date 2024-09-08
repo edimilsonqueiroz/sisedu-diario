@@ -6,6 +6,11 @@
             </svg>
         </div>
         <div class="flex-1 flex flex-col items-center justify-center">
+            <div class="flex items-center justify-center flex-col">
+                <x-icones.icone-school/>
+                <h1 class="text-5xl font-semibold">SISEDU-DIÁRIO</h1>
+                <span class="text-2xl">Acesso de Usuário</span>
+            </div>
             <div class="w-full md:px-20 md:my-5">
                 @if (session('login'))
                 <div class="bg-red-400 rounded text-lg text-center p-5">
@@ -13,18 +18,21 @@
                 </div>
                 @endif
             </div>
-            <form wire:submit.prevent="authenticate" class="flex flex-col w-full md:px-20">
+            <form wire:submit.prevent="authenticate" class="flex flex-col w-full px-5 md:px-20">
                 <label>Login</label>
-                <input required wire:model="form.email" class="border-2 @error('form.email') border-red-400 @enderror p-2 outline-none rounded-md border-gray-300" type="email">
+                <input placeholder="Informe um e-mail válido" required wire:model="form.email" class="border-2 @error('form.email') border-red-400 @enderror p-2 outline-none rounded-md border-gray-300" type="email">
                 @error('form.email') <span class="text-red-400">{{ $message }}</span> @enderror
                 <label class="mt-5">Senha</label>
                 <div class="border-2 pr-2 flex items-center @error('form.password') border-red-400 @enderror  rounded-md border-gray-300">
-                    <input class="p-2 outline-none flex-1" required wire:model="form.password"  type="password">
-                    <i class="bi bi-eye text-2xl"></i>
+                    <input placeholder="Informe sua senha" class="p-2 outline-none flex-1" required wire:model="form.password"  type="password" id="senha">
+                    <i class="bi bi-eye text-2xl" id="btn-senha" onclick="mostrarSenha()"></i>
+                </div>
+                @error('form.password') <span class="text-red-400">{{ $message }}</span> @enderror
+                <div class="w-full flex items-center justify-between">
+                    <a href="#">Esqueceu a senha?</a>
+                    <button class="bg-cyan-500 mt-8 py-3 w-[50%] text-white rounded-md border-0">Entrar</button>
                 </div>
                 
-                @error('form.password') <span class="text-red-400">{{ $message }}</span> @enderror
-                <button class="bg-cyan-500 mt-8 py-3 text-white rounded-md border-0">Entrar</button>
             </form>
         </div>
    </div>

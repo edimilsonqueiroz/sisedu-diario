@@ -2,7 +2,8 @@
     <div x-data="{openSidebar: true}" class="w-full flex h-full">
         <div x-transition  :class="{'translate-x-0': !openSidebar}" class="w-64 bg-slate-600 h-full transform transition ease-in-out flex flex-col fixed left-0 top-0 bottom-0 max-h-full md:fixed z-30 duration-200 -translate-x-full md:-translate-x-0">
             <div class="w-full h-20 flex items-center justify-center text-gray-100 font-semibold">
-                <h1>SISEDU-DIÁRIO</h1>
+                <x-icones.icone-school/>
+                <h1 class="ml-2">SISEDU-DIÁRIO</h1>
             </div>
             <nav class="flex-1 bg-slate-500 py-5 w-full overflow-y-auto">
                 <ul class="w-full px-5 text-gray-100 text-lg font-semibold">

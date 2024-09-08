@@ -19,7 +19,7 @@
                 @endif
             </div>
             <div class="flex-1">
-                <div class="p-3 h-full flex flex-col">
+                <div class="p-3 h-full max-h-[500px] overflow-y-auto flex flex-col">
                     {{ $body }}
                 </div>
             </div>
