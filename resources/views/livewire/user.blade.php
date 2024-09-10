@@ -306,7 +306,26 @@
    <x-modal.modal-md name="cadastro-usuario" title="Cadastro de usuário">
         <form>
             <x-slot:body>
-                <span>Cadastro de Usuário</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div class="flex flex-col p-1">
+                        <label for="">Nome</label>
+                        <input class="px-2 py-1 outline-none border border-gray-300 rounded" type="text">
+                    </div>
+                    <div class="flex flex-col p-1">
+                        <label for="">E-mail</label>
+                        <input class="px-2 py-1 outline-none border border-gray-300 rounded" type="email">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div class="flex flex-col p-1">
+                        <label for="">CPF</label>
+                        <input class="px-2 py-1 outline-none border border-gray-300 rounded" type="text">
+                    </div>
+                    <div class="flex flex-col p-1">
+                        <label for="">Senha</label>
+                        <input class="px-2 py-1 outline-none border border-gray-300 rounded" type="password">
+                    </div>
+                </div>
             </x-slot>
             <x-slot:footer>
                 <button x-data x-on:click="show = false" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md">Fechar</button>
