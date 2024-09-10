@@ -73,13 +73,13 @@
                </ul>
             </div>
 
-                <x-modal.confirmation name="confirmation logout">
+                <x-modal.confirmation name="confirmation logout" title="Confirmação">
                     <x-slot:body>
-                        <span class="text-lg">Deseje realmente sair dos sistema?</span>
+                        <span class="text-lg">Deseja realmente sair dos sistema?</span>
                     </x-slot>
                     <x-slot:footer>
-                        <button x-data x-on:click="show = false" class="mx-2">Fechar</button>
-                        <a wire:navigate href="{{route('logout')}}" class="mx-2 border-2 border-teal-500 px-6 bg-teal-500 rounded-md shadow-md">Sim</a>
+                        <button x-data x-on:click="show = false" class="mx-2 border-2 rounded shadow px-2 border-slate-400 bg-slate-400"><i class="bi bi-x-lg"></i> Fechar</button>
+                        <a wire:navigate href="{{route('logout')}}" class="mx-2 border-2 border-teal-500 px-2 bg-teal-500 rounded shadow"><i class="bi bi-check2-all"></i> Sim</a>
                     </x-slot>
                 </x-modal.confirmation>
 
