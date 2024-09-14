@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Edimilson Francisco de Queiroz',
             'email' => 'edimilsonqueiroz681@gmail.com',
+            'cpf'=> '00220832196',
             'password'=>bcrypt('efq170880')
         ]);
     }
