@@ -3,14 +3,14 @@
  x-data = "{ show: false, name: '{{ $name }}' }"
  x-show = "show"
  x-on:open-modal.window = "show = ($event.detail.name === name)"
- x-on:close-modal.window = "show = !($event.detail.name === name)"
+ x-on:close-modal.window = "show = false"
  x-on:keydown.escape.window = "show = false"
  style="display:none;"
  x-transition.scale.origin.top.right
  x-transition.opacity
  x-transition.duration.200ms
  class="fixed z-40 flex items-center justify-center inset-0">
-    <div x-on:click="show = false" class="fixed inset-0 bg-gray-800 opacity-20"></div>
+    <div x-on:click="$dispatch('close-modal')" class="fixed inset-0 bg-gray-800 opacity-20"></div>
     <div class="bg-white shadow-md rounded-md m-auto absolute z-50 md:max-w-[400px] md:w-[400px] w-[95%]  max-w-[95%]">
         <div class="flex h-auto flex-col">
             <div class="h-10 max-h-10 p-3 flex items-center bg-slate-100 rounded-tl rounded-tr">

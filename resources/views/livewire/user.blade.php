@@ -332,7 +332,7 @@
                 </div>
             </x-slot>
             <x-slot:footer>
-                <button x-data x-on:click="show = false" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md">Fechar</button>
+                <button x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md">Fechar</button>
                 <button wire:click.prevent="create" class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Cadastrar</button>
             </x-slot>
         </form>
@@ -346,7 +346,7 @@
                 <span>Editar Usuário</span>
             </x-slot>
             <x-slot:footer>
-                <button x-data x-on:click="show = false" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md">Fechar</button>
+                <button x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md">Fechar</button>
                 <button class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Editar</button>
             </x-slot>
         </form>

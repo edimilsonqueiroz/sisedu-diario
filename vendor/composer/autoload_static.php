@@ -528,9 +528,12 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
 
     public static $classMap = array (
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\LogoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/LogoutController.php',
         'App\\Livewire\\Dashboard' => __DIR__ . '/../..' . '/app/Livewire/Dashboard.php',
         'App\\Livewire\\Forms\\LoginForm' => __DIR__ . '/../..' . '/app/Livewire/Forms/LoginForm.php',
+        'App\\Livewire\\Forms\\UserForm' => __DIR__ . '/../..' . '/app/Livewire/Forms/UserForm.php',
         'App\\Livewire\\LoginController' => __DIR__ . '/../..' . '/app/Livewire/LoginController.php',
+        'App\\Livewire\\UserController' => __DIR__ . '/../..' . '/app/Livewire/UserController.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

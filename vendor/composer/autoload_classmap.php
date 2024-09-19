@@ -7,9 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\LogoutController' => $baseDir . '/app/Http/Controllers/LogoutController.php',
     'App\\Livewire\\Dashboard' => $baseDir . '/app/Livewire/Dashboard.php',
     'App\\Livewire\\Forms\\LoginForm' => $baseDir . '/app/Livewire/Forms/LoginForm.php',
+    'App\\Livewire\\Forms\\UserForm' => $baseDir . '/app/Livewire/Forms/UserForm.php',
     'App\\Livewire\\LoginController' => $baseDir . '/app/Livewire/LoginController.php',
+    'App\\Livewire\\UserController' => $baseDir . '/app/Livewire/UserController.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
