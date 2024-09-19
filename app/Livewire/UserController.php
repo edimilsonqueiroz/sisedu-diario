@@ -43,7 +43,7 @@ class UserController extends Component
 
         return view('livewire.user',[
             'page' => $page,
-            'users' => User::where('name','like','%'.$this->query.'%')->paginate(10)
+            'users' => User::where('name','like','%'.$this->query.'%')->paginate(2)
         ]);
     }
 }

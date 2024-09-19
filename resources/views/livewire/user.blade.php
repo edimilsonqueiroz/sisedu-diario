@@ -56,7 +56,7 @@
                     {{$user->cpf}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$user->createdAtt}}
+                    {{$user->created_at}}
                 </td>
                 <td class="px-6 py-4">
                     <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
@@ -67,7 +67,7 @@
     </table>
 </div>
     <nav class="flex bg-white items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
-        
+        {{$users->links()}}
     </nav>
     </div>
    @include('components/footer')
