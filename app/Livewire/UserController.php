@@ -7,11 +7,19 @@ use App\Models\User;
 use Livewire\Attributes\Title;
 use App\Livewire\Forms\UserForm;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\On; 
 
 class UserController extends Component
 {
     use LivewireAlert;
     public UserForm $form;
+
+    #[On('close-modal')] 
+    public function resetForm()
+    {
+        $this->form->reset();
+    }
+    
     public function create()
     {
         $this->form->store(); 
