@@ -4,7 +4,7 @@
       
 <div class="w-full h-full overflow-hidden flex flex-col shadow bg-white p-5 rounded-lg">
   <div class="w-full flex flex-col-reverse md:flex-row mb-5">
-     <input placeholder="Pesquisar" type="text" class="border-2 outline-none rounded p-2 w-full md:w-[50%] border-gray-300">
+     <input wire:model.live="query" placeholder="Pesquisar" type="text" class="border-2 outline-none rounded p-2 w-full md:w-[50%] border-gray-300">
      <div class="md:w-[50%] py-5 md:py-0 flex items-center justify-center md:justify-center">
         <button x-data x-on:click="$dispatch('open-modal', { name: 'cadastro-usuario' })" class="border-2 border-teal-500 bg-teal-500 rounded-md shadow-md px-2 mx-2"><i class="bi bi-person-fill-add"></i> Novo Usuário</button>
         <button class="border-2 border-red-400 bg-red-400 rounded-md shadow-md px-2 mx-2"><i class="bi bi-trash"></i> Excluir</button>
@@ -38,6 +38,7 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($users as $user)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
@@ -46,21 +47,22 @@
                     </div>
                 </td>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
+                    {{$user->name}}
                 </th>
                 <td class="px-6 py-4">
-                    Silver
+                    {{$user->email}}
                 </td>
                 <td class="px-6 py-4">
-                    Laptop
+                    {{$user->cpf}}
                 </td>
                 <td class="px-6 py-4">
-                    $2999
+                    {{$user->createdAtt}}
                 </td>
                 <td class="px-6 py-4">
                     <button x-data x-on:click="$dispatch('open-modal', { name: 'editar-usuario' })" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
