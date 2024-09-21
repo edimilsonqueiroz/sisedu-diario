@@ -4,11 +4,14 @@ namespace App\Livewire\Forms;
 
 use Livewire\Attributes\Validate;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Locked;
 use Livewire\Form;
 use App\Models\User;
 
 class UserForm extends Form
 {
+    #[Locked] 
+    public $userId = '';
     #[Validate('required|string')]
     public $name = '';
 
@@ -22,11 +25,13 @@ class UserForm extends Form
     public $password = '';
 
     public ?User $user;
+    
 
 
     public function setUser(User $user)
     {
         $this->user = $user;
+        $this->userId = $user->id;
         $this->name = $user->name;
         $this->email = $user->email;
         $this->cpf = $user->cpf;
