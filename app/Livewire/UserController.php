@@ -5,10 +5,10 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\User;
 use Livewire\Attributes\Title;
-use Livewire\Attributes\Validate;
 use Livewire\WithPagination;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Attributes\On; 
+use Livewire\Attributes\On;
+use App\Livewire\Forms\UserForm; 
 
 
 class UserController extends Component
@@ -16,41 +16,35 @@ class UserController extends Component
     use LivewireAlert;
     use WithPagination;
 
+    public UserForm $form; 
+
     public $query = '';
-
-
-    #[Validate('required|string')]
-    public $name = '';
-
-    #[Validate('required|email|string|unique:users')]
-    public $email = '';
-
-    #[Validate('required|min:11|max:11|string|unique:users')]
-    public $cpf = '';
-
-    #[Validate('required|min:5|string')]
-    public $password = '';
-
 
     #[On('close-modal')] 
     public function resetForm()
     {
-        $this->reset();
+        $this->form->reset();
+    }
+
+    public function openEditUser(User $user)
+    {
+        $this->form->setUser($user);
+        $this->dispatch('open-modal', name: 'editar-usuario');
+    }
+
+    public function update()
+    {
+        $this->form->updateForm();
+        $this->alert('success', 'Usuário alterado com sucesso!',[
+            'position' => 'top',
+            'toast' => true,
+            'width' => 380
+        ]);
     }
     
-    public function store()
+    public function save()
     {
-        $this->validate();
-
-        User::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'cpf' => $this->cpf,
-            'password' => bcrypt($this->password)
-        ]);
-
-        $this->reset(); 
-
+        $this->form->store();
         $this->alert('success', 'Usuário cadastrado com sucesso!',[
             'position' => 'top',
             'toast' => true,
@@ -65,7 +59,7 @@ class UserController extends Component
 
         return view('livewire.user',[
             'page' => $page,
-            'users' => User::where('name','like','%'.$this->query.'%')->paginate(10)
+            'users' => User::where('name','like','%'.$this->query.'%')->paginate(3)
         ]);
     }
 }
