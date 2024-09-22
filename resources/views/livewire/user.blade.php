@@ -60,6 +60,7 @@
                 </td>
                 <td class="px-6 py-4">
                     <button wire:click.prevent="openEditUser({{$user->id}})" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</button>
+                    <button x-data x-on:click="$dispatch('open-modal', {name: 'permission'})" class="font-medium mx-2 text-blue-600 dark:text-blue-500 hover:underline">Permissões</button>
                 </td>
             </tr>
             @endforeach
@@ -154,4 +155,15 @@
         <button type="submit" class="bg-red-400 border-2 mx-2 px-2 border-red-400 rounded-md shadow-md"><i class="bi bi-check-lg"></i>Confirmar</button>
         </x-slot>
     </x-modal.confirmation>
+
+
+    <!-- MODAL PERMISSÕES -->
+     <x-modal.modal-md name="permission" title="Permissões de usuário">
+        <x-slot:body>
+
+        </x-slot>
+        <x-slot:footer>
+            
+        </x-slot:footer>
+     </x-modal.modal-md>
 </div>
