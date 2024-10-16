@@ -47,7 +47,7 @@
                         
                     </ul>
                 
-                <div class="bg-slate-700 text-slate-200 text-center mt-2 py-2 font-semibold">PAINEL ADMNISTRATIVO</div>
+                <div class="bg-slate-700 text-slate-200 text-center mt-2 py-2 font-semibold">CONFIGURAÇÕES DA CONTA</div>
             </nav>
             <div class="w-full h-20 flex items-center font-semibold text-gray-100 text-lg justify-center">
                 <button class="md:hidden w-full flex items-center justify-center" x-on:click="openSidebar = true">

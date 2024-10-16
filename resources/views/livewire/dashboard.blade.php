@@ -106,10 +106,10 @@
             new Chart(ctx3, {
                 type: 'line',
                 data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['5ª ANO', '6º ANO', '7º ANO', '8º ANO', '9º ANO'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'EVASÃO POR TURMA',
+                    data: [12, 19, 3, 5, 2],
                     borderWidth: 1
                 }]
                 },

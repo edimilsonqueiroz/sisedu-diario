@@ -13,10 +13,25 @@ return new class extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('school_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
             $table->integer('ano');
             $table->boolean('active');
             $table->date('dataConclusao')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('classe_discipline', function (Blueprint $table) {
+            $table->integer('classe_id');
+            $table->integer('discipline_id');
+            $table->integer('status');
+            $table->timestamps();
+        });
+
+        Schema::create('classe_student', function (Blueprint $table) {
+            $table->integer('classe_id');
+            $table->integer('student_id');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -27,5 +42,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('classes');
+        Schema::dropIfExists('classe_discipline');
+        Schema::dropIfExists('classe_student');
     }
 };

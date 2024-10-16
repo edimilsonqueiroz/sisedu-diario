@@ -20,12 +20,12 @@
             </div>
             <form wire:submit.prevent="authenticate" class="flex flex-col w-full px-5 md:px-20">
                 <label class="text-xl">Login</label>
-                <input placeholder="Informe um e-mail válido" required wire:model="form.email" class="border-2 @error('form.email') border-red-400 @enderror px-2 py-4 text-xl outline-none rounded-md border-gray-300" type="email">
+                <input placeholder="Informe um e-mail válido" required wire:model="form.email" class="border-2 @error('form.email') border-red-400 @enderror px-2 py-3 text-xl outline-none rounded-md border-gray-300" type="email">
                 @error('form.email') <span class="text-red-400">{{ $message }}</span> @enderror
                 <label class="mt-5 text-xl">Senha</label>
                 <div class="border-2 pr-2 flex items-center @error('form.password') border-red-400 @enderror  rounded-md border-gray-300">
-                    <input placeholder="Informe sua senha" class="px-2 py-4 text-xl outline-none flex-1" required wire:model="form.password"  type="password" id="senha">
-                    <i class="bi bi-eye text-2xl" id="btn-senha" onclick="mostrarSenha()"></i>
+                    <input placeholder="Informe sua senha" class="px-2 py-3 text-xl outline-none flex-1" required wire:model="form.password"  type="password" id="senha">
+                    <i class="bi bi-eye text-3xl mr-3" id="btn-senha" onclick="mostrarSenha()"></i>
                 </div>
                 @error('form.password') <span class="text-red-400">{{ $message }}</span> @enderror
                 <div class="w-full flex items-center justify-between">

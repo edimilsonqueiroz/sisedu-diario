@@ -8,6 +8,7 @@ use Livewire\WithPagination;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\On;
 use App\Livewire\Forms\EscolaForm;
+use App\Models\School;
 
 class EscolaController extends Component
 {
@@ -27,7 +28,12 @@ class EscolaController extends Component
 
     public function save()
     {
-        
+        $this->form->store();
+        $this->alert('success', 'Escola cadastrada com sucesso!',[
+            'position' => 'top',
+            'toast' => true,
+            'width' => 380
+        ]);
     }
 
     #[Title('SISEDU-DIÁRIO - Escolas')] 
@@ -36,6 +42,9 @@ class EscolaController extends Component
         $page = 'Schools';
         return view('livewire.escola',[
             'page' => $page,
+            'schools' => School::where('name','like','%'.$this->query.'%')
+            ->orwhere('email','like','%'.$this->query.'%')
+            ->paginate(10)
         ]);
     }
 }

@@ -30,12 +30,15 @@
                     ENDEREÇO
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    TELEFONE
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Ação
                 </th>
             </tr>
         </thead>
         <tbody>
-            
+            @foreach($schools as $school)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
@@ -44,20 +47,23 @@
                     </div>
                 </td>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    
+                    {{$school->name}}
                 </th>
                 <td class="px-6 py-4">
-                    
+                    {{$school->email}}
                 </td>
                 <td class="px-6 py-4">
-                    
+                    {{$school->endereco}}
+                </td>
+                <td class="px-6 py-4">
+                    {{$school->telefone}}
                 </td>
                 <td class="px-6 py-4 flex text-[16px]">
                     <button class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
-                    <button  class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-person-fill-lock"></i> Permissões</button>
+                    <button  class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-person-fill-lock"></i> Informações</button>
                 </td>
             </tr>
-            
+            @endforeach
         </tbody>
     </table>
 </div>
@@ -77,19 +83,24 @@
                         <div class="flex flex-col p-1">
                             <label for="">Nome</label>
                             <input wire:model="form.name"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                           
+                            @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col p-1">
                             <label for="">E-mail</label>
                             <input wire:model="form.email"  class="p-2 outline-none border-2 border-gray-300 rounded" type="email">
-                            
+                            @error('form.email') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 gap-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Endereço</label>
                             <input wire:model="form.endereco"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                           
+                            @error('form.endereco') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">Telefone</label>
+                            <input wire:model="form.telefone"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.telefone') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                 </x-slot>
