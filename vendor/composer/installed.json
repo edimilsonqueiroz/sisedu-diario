@@ -1,71 +1,6 @@
 {
     "packages": [
         {
-            "name": "asantibanez/livewire-charts",
-            "version": "v4.1.0",
-            "version_normalized": "4.1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/asantibanez/livewire-charts.git",
-                "reference": "35324eace3c45112935eba7ccca3087fa52deb48"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/asantibanez/livewire-charts/zipball/35324eace3c45112935eba7ccca3087fa52deb48",
-                "reference": "35324eace3c45112935eba7ccca3087fa52deb48",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^7.0|^8.0|^9.0|^10.0|^11.0",
-                "livewire/livewire": "^3.0",
-                "php": "^7.2|^7.3|^7.4|^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^5.0|^6.0|^7.0|^8.0|^9.0",
-                "phpunit/phpunit": "^8.0|^9.5.10|^10.5"
-            },
-            "time": "2024-08-22T19:42:07+00:00",
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Asantibanez\\LivewireCharts\\LivewireChartsServiceProvider"
-                    ],
-                    "aliases": {
-                        "LivewireCharts": "Asantibanez\\LivewireCharts\\LivewireChartsFacade"
-                    }
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Asantibanez\\LivewireCharts\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andrés Santibáñez",
-                    "email": "santibanez.andres@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Livewire Charts",
-            "homepage": "https://github.com/asantibanez/livewire-charts",
-            "keywords": [
-                "asantibanez",
-                "livewire-charts"
-            ],
-            "support": {
-                "issues": "https://github.com/asantibanez/livewire-charts/issues",
-                "source": "https://github.com/asantibanez/livewire-charts/tree/v4.1.0"
-            },
-            "install-path": "../asantibanez/livewire-charts"
-        },
-        {
             "name": "brick/math",
             "version": "0.12.1",
             "version_normalized": "0.12.1.0",
@@ -1341,6 +1276,74 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "install-path": "../hamcrest/hamcrest-php"
+        },
+        {
+            "name": "icehouse-ventures/laravel-chartjs",
+            "version": "v4.1",
+            "version_normalized": "4.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/icehouse-ventures/laravel-chartjs.git",
+                "reference": "4557ac7a1d7d5ce8fd8413809a18647aaa367197"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/icehouse-ventures/laravel-chartjs/zipball/4557ac7a1d7d5ce8fd8413809a18647aaa367197",
+                "reference": "4557ac7a1d7d5ce8fd8413809a18647aaa367197",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.1|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.13",
+                "orchestra/testbench": "^8.19",
+                "pestphp/pest": "^2.30",
+                "pestphp/pest-plugin-laravel": "^2.2",
+                "phpstan/phpstan": "^1.10"
+            },
+            "time": "2024-09-14T21:15:39+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "IcehouseVentures\\LaravelChartjs\\Providers\\ChartjsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Chartjs": "IcehouseVentures\\LaravelChartjs\\Facades\\Chartjs"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "IcehouseVentures\\LaravelChartjs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Icehouse Ventures",
+                    "email": "tech@icehouseventures.co.nz"
+                }
+            ],
+            "description": "Simple package to facilitate and automate the use of charts in Laravel using the Chart.js library",
+            "keywords": [
+                "chartjs",
+                "charts",
+                "graphs",
+                "icehouseventures",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/icehouse-ventures/laravel-chartjs/issues",
+                "source": "https://github.com/icehouse-ventures/laravel-chartjs/tree/v4.1"
+            },
+            "install-path": "../icehouse-ventures/laravel-chartjs"
         },
         {
             "name": "jantinnerezo/livewire-alert",

@@ -22,6 +22,7 @@ return new class extends Migration
         });
 
         Schema::create('classe_discipline', function (Blueprint $table) {
+            $table->id();
             $table->integer('classe_id');
             $table->integer('discipline_id');
             $table->integer('status');
@@ -29,6 +30,7 @@ return new class extends Migration
         });
 
         Schema::create('classe_student', function (Blueprint $table) {
+            $table->id();
             $table->integer('classe_id');
             $table->integer('student_id');
             $table->string('status');

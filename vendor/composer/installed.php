@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '93957928b601127255ac844eda8efb3e8adf6cab',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'asantibanez/livewire-charts' => array(
-            'pretty_version' => 'v4.1.0',
-            'version' => '4.1.0.0',
-            'reference' => '35324eace3c45112935eba7ccca3087fa52deb48',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../asantibanez/livewire-charts',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'brick/math' => array(
             'pretty_version' => '0.12.1',
             'version' => '0.12.1.0',
@@ -174,6 +165,15 @@
             'install_path' => __DIR__ . '/../hamcrest/hamcrest-php',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'icehouse-ventures/laravel-chartjs' => array(
+            'pretty_version' => 'v4.1',
+            'version' => '4.1.0.0',
+            'reference' => '4557ac7a1d7d5ce8fd8413809a18647aaa367197',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../icehouse-ventures/laravel-chartjs',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'illuminate/auth' => array(
             'dev_requirement' => false,
@@ -398,9 +398,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '93957928b601127255ac844eda8efb3e8adf6cab',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

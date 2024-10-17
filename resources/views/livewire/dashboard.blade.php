@@ -1,6 +1,6 @@
 <div class="w-full h-full min-h-full">
     @include('components/header')
-        <div class="flex w-full flex-col overflow-x-auto p-5">
+    <div class="flex w-full flex-col overflow-x-auto p-5">
             <div class="grid md:grid-cols-3 grid-cols-1 gap-3">
                 <div class="bg-cyan-500 flex h-28 rounded-md col-span-1">
                     <div class="h-full rounded-l-md px-2 flex justify-center items-center bg-cyan-600">
@@ -38,92 +38,19 @@
             </div>
             
             <div class="grid w-full md:grid-cols-2 mt-5 gap-5 md:gap-2 grid-cols-1">
-                <div class="h-60 md:h-80 bg-slate-100 shadow-md rounded-md">
-                    <canvas id="myChart"></canvas>
+                <div class="md:h-80 bg-slate-100 shadow-md rounded-md">
+                    {!! $chartBar->render() !!}
                 </div>
-                <div class="h-60 md:h-80 bg-slate-100 shadow-md rounded-md">
-                    <canvas id="myChart2"></canvas>
+                <div class="md:h-80 flex flex-col bg-slate-100 shadow-md rounded-md">
+                    <p class="text-center">MATRÍCULAS ATIVAS POR TURMA</p>
+                    <div class="flex-1">{!! $chartPier->render() !!}</div>
                 </div>
             </div>
             <div class="grid w-full md:grid-cols-1 mt-5 gap-5 md:gap-2 grid-cols-1">
-                <div class="h-60 md:h-80 bg-slate-100 shadow-md rounded-md">
-                    <canvas id="myChart3"></canvas>
+                <div class="md:h-80 bg-slate-100 shadow-md rounded-md">
+                    {!! $chartLine->render() !!}
                 </div>
-            </div>
-            
-        </div>
-        <script>
-            const ctx = document.getElementById('myChart');
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                labels: ['5º ANO', '6º ANO', '7º ANO', '8º ANO', '9º ANO'],
-                datasets: [{
-                    label: 'REPROVAÇÃO POR TURMA',
-                    data: [12, 19, 9, 8, 15],
-                    borderWidth: 1
-                }]
-                },
-                options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                    beginAtZero: true
-                    }
-                }
-                }
-            });
-        </script>
-        <script>
-            const ctx2 = document.getElementById('myChart2');
-
-            new Chart(ctx2, {
-                type: 'pie',
-                data: {
-                labels: ['5º ANO', '6º ANO', '7º ANO', '8º ANO', '9º ANO'],
-                datasets: [{
-                    label: 'TOTAL DE MATRÍCULAS POR TURMA',
-                    data: [12, 19, 3, 5, 2],
-                    borderWidth: 1
-                }]
-                },
-                options: {
-                    responsive:true,
-                    maintainAspectRatio: false,
-                scales: {
-                    y: {
-                    beginAtZero: true
-                    }
-                }
-                }
-            });
-        </script>
-        <script>
-            const ctx3 = document.getElementById('myChart3');
-
-            new Chart(ctx3, {
-                type: 'line',
-                data: {
-                labels: ['5ª ANO', '6º ANO', '7º ANO', '8º ANO', '9º ANO'],
-                datasets: [{
-                    label: 'EVASÃO POR TURMA',
-                    data: [12, 19, 3, 5, 2],
-                    borderWidth: 1
-                }]
-                },
-                options: {
-                    responsive:true,
-                    maintainAspectRatio: false,
-                scales: {
-                    y: {
-                    beginAtZero: true
-                    }
-                }
-                }
-            });
-        </script>
-        
+            </div>   
+    </div>
     @include('components/footer')
 </div>

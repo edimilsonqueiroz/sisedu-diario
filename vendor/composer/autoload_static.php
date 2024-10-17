@@ -9,8 +9,8 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
@@ -19,13 +19,13 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
         '2203a247e6fda86070a5e4e07aed533a' => __DIR__ . '/..' . '/symfony/clock/Resources/now.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '47e1160838b5e5a10346ac4084b58c23' => __DIR__ . '/..' . '/laravel/prompts/src/helpers.php',
+        '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
@@ -137,6 +137,7 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         array (
             'Illuminate\\Support\\' => 19,
             'Illuminate\\' => 11,
+            'IcehouseVentures\\LaravelChartjs\\' => 32,
         ),
         'G' => 
         array (
@@ -177,7 +178,6 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         ),
         'A' => 
         array (
-            'Asantibanez\\LivewireCharts\\' => 27,
             'App\\' => 4,
         ),
     );
@@ -442,6 +442,10 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'IcehouseVentures\\LaravelChartjs\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/icehouse-ventures/laravel-chartjs/src',
+        ),
         'GuzzleHttp\\UriTemplate\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/uri-template/src',
@@ -520,10 +524,6 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
-        'Asantibanez\\LivewireCharts\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/asantibanez/livewire-charts/src',
-        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -537,43 +537,20 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'App\\Livewire\\Dashboard' => __DIR__ . '/../..' . '/app/Livewire/Dashboard.php',
         'App\\Livewire\\DisciplinaController' => __DIR__ . '/../..' . '/app/Livewire/DisciplinaController.php',
         'App\\Livewire\\EscolaController' => __DIR__ . '/../..' . '/app/Livewire/EscolaController.php',
+        'App\\Livewire\\Forms\\DisciplinaForm' => __DIR__ . '/../..' . '/app/Livewire/Forms/DisciplinaForm.php',
+        'App\\Livewire\\Forms\\EscolaForm' => __DIR__ . '/../..' . '/app/Livewire/Forms/EscolaForm.php',
         'App\\Livewire\\Forms\\LoginForm' => __DIR__ . '/../..' . '/app/Livewire/Forms/LoginForm.php',
+        'App\\Livewire\\Forms\\TurmaForm' => __DIR__ . '/../..' . '/app/Livewire/Forms/TurmaForm.php',
         'App\\Livewire\\Forms\\UserForm' => __DIR__ . '/../..' . '/app/Livewire/Forms/UserForm.php',
         'App\\Livewire\\LoginController' => __DIR__ . '/../..' . '/app/Livewire/LoginController.php',
         'App\\Livewire\\TurmaController' => __DIR__ . '/../..' . '/app/Livewire/TurmaController.php',
         'App\\Livewire\\UserController' => __DIR__ . '/../..' . '/app/Livewire/UserController.php',
+        'App\\Models\\Classe' => __DIR__ . '/../..' . '/app/Models/Classe.php',
+        'App\\Models\\Discipline' => __DIR__ . '/../..' . '/app/Models/Discipline.php',
+        'App\\Models\\School' => __DIR__ . '/../..' . '/app/Models/School.php',
+        'App\\Models\\Student' => __DIR__ . '/../..' . '/app/Models/Student.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
-        'Asantibanez\\LivewireCharts\\Charts\\LivewireAreaChart' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Charts/LivewireAreaChart.php',
-        'Asantibanez\\LivewireCharts\\Charts\\LivewireColumnChart' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Charts/LivewireColumnChart.php',
-        'Asantibanez\\LivewireCharts\\Charts\\LivewireLineChart' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Charts/LivewireLineChart.php',
-        'Asantibanez\\LivewireCharts\\Charts\\LivewirePieChart' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Charts/LivewirePieChart.php',
-        'Asantibanez\\LivewireCharts\\Charts\\LivewireRadarChart' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Charts/LivewireRadarChart.php',
-        'Asantibanez\\LivewireCharts\\Charts\\LivewireRadialChart' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Charts/LivewireRadialChart.php',
-        'Asantibanez\\LivewireCharts\\Charts\\LivewireTreeMapChart' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Charts/LivewireTreeMapChart.php',
-        'Asantibanez\\LivewireCharts\\Console\\InstallCommand' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Console/InstallCommand.php',
-        'Asantibanez\\LivewireCharts\\Facades\\LivewireCharts' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Facades/LivewireCharts.php',
-        'Asantibanez\\LivewireCharts\\LivewireCharts' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/LivewireCharts.php',
-        'Asantibanez\\LivewireCharts\\LivewireChartsServiceProvider' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/LivewireChartsServiceProvider.php',
-        'Asantibanez\\LivewireCharts\\Models\\AreaChartModel' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/AreaChartModel.php',
-        'Asantibanez\\LivewireCharts\\Models\\BaseChartModel' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/BaseChartModel.php',
-        'Asantibanez\\LivewireCharts\\Models\\ColumnChartModel' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/ColumnChartModel.php',
-        'Asantibanez\\LivewireCharts\\Models\\LineChartModel' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/LineChartModel.php',
-        'Asantibanez\\LivewireCharts\\Models\\PieChartModel' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/PieChartModel.php',
-        'Asantibanez\\LivewireCharts\\Models\\RadarChartModel' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/RadarChartModel.php',
-        'Asantibanez\\LivewireCharts\\Models\\RadialChartModel' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/RadialChartModel.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasAnimation' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasAnimation.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasAxis' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasAxis.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasColors' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasColors.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasDataLabels' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasDataLabels.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasGrid' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasGrid.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasJsonConfig' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasJsonConfig.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasLegend' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasLegend.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasSparkline' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasSparkline.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasStroke' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasStroke.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasTheme' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasTheme.php',
-        'Asantibanez\\LivewireCharts\\Models\\Traits\\HasTitle' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/Traits/HasTitle.php',
-        'Asantibanez\\LivewireCharts\\Models\\TreeMapChartModel' => __DIR__ . '/..' . '/asantibanez/livewire-charts/src/Models/TreeMapChartModel.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
@@ -1572,6 +1549,11 @@ class ComposerStaticInit7e8c3c14ff33b199b4a0838993eb8423
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'IcehouseVentures\\LaravelChartjs\\Builder' => __DIR__ . '/..' . '/icehouse-ventures/laravel-chartjs/src/Builder.php',
+        'IcehouseVentures\\LaravelChartjs\\Facades\\Chartjs' => __DIR__ . '/..' . '/icehouse-ventures/laravel-chartjs/src/Facades/Chartjs.php',
+        'IcehouseVentures\\LaravelChartjs\\Providers\\ChartjsServiceProvider' => __DIR__ . '/..' . '/icehouse-ventures/laravel-chartjs/src/Providers/ChartjsServiceProvider.php',
+        'IcehouseVentures\\LaravelChartjs\\Support\\Config' => __DIR__ . '/..' . '/icehouse-ventures/laravel-chartjs/src/Support/Config.php',
+        'IcehouseVentures\\LaravelChartjs\\View\\Components\\ChartjsComponent' => __DIR__ . '/..' . '/icehouse-ventures/laravel-chartjs/src/View/Components/ChartjsComponent.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Events\\GateEvaluated' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Events/GateEvaluated.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
