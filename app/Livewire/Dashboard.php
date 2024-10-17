@@ -9,55 +9,9 @@ use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 class Dashboard extends Component
 {
     public string $page = "Dashboard";
-    
-    #[Title('SISEDU-DIÁRIO - Dashboard')] 
-    public function render()
+
+    public function lineChart()
     {
-        $page = 'Dashboard';
-        $chartBar = Chartjs::build()
-         ->name('barChartTest')
-         ->type('bar')
-         ->labels(['5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
-         ->datasets([
-             [
-                 "label" => "REPROVAÇÃO POR TURMA",
-                 'backgroundColor' => ['#527aba', '#527aba','#527aba','#527aba','#527aba'],
-                 'data' => [15, 12, 20, 19, 5]
-             ]
-         ])
-         ->options([
-            "responsive"=>true,
-            "maintainAspectRatio"=>false,
-            "scales" => [
-                "y" => [
-                    "beginAtZero" => true,
-                    ]
-                ]
-         ]);
-
-         $chartPier = app()->chartjs
-        ->name('pieChartTest')
-        ->type('pie')
-        ->labels(['5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
-        ->datasets([
-            [
-                'label'=>'MATRICULAS POR TURMA',
-                'backgroundColor' => ['#FF6384', '#36A2EB','#32a852','#8f32a8','#ed2f33'],
-                'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
-                'data' => [69, 59, 10, 25, 30]
-            ]
-        ])
-        ->options([
-            "responsive"=>true,
-            "showAllTooltips"=> true,
-            "maintainAspectRatio"=>false,
-            "scales" => [
-                "y" => [
-                    "beginAtZero" => true,
-                    ]
-                ]
-        ]);
-
         $chartLine = Chartjs::build()
         ->name('lineChartTest')
         ->type('line')
@@ -84,14 +38,79 @@ class Dashboard extends Component
                     "beginAtZero" => true,
                     ]
                 ]
-            ]);
+        ]);
+
+        return $chartLine;
+    }
+
+    public function barChart()
+    {
+        $chartBar = Chartjs::build()
+         ->name('barChartTest')
+         ->type('bar')
+         ->labels(['5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
+         ->datasets([
+             [
+                 "label" => "REPROVAÇÃO POR TURMA",
+                 'backgroundColor' => ['#527aba', '#527aba','#527aba','#527aba','#527aba'],
+                 'data' => [15, 12, 20, 19, 5]
+             ]
+         ])
+         ->options([
+            "responsive"=>true,
+            "maintainAspectRatio"=>false,
+            "scales" => [
+                "y" => [
+                    "beginAtZero" => true,
+                    ]
+                ]
+         ]);
+
+         return $chartBar;
+    }
+
+    public function pieChart()
+    {
+        $chartPier = app()->chartjs
+        ->name('pieChartTest')
+        ->type('pie')
+        ->labels(['5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
+        ->datasets([
+            [
+                'label'=>'MATRICULAS POR TURMA',
+                'backgroundColor' => ['#FF6384', '#36A2EB','#32a852','#8f32a8','#ed2f33'],
+                'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
+                'data' => [69, 59, 10, 25, 30]
+            ]
+        ])
+        ->options([
+            "responsive"=>true,
+            "showAllTooltips"=> true,
+            "maintainAspectRatio"=>false,
+            "scales" => [
+                "y" => [
+                    "beginAtZero" => true,
+                    ]
+                ]
+        ]);
+
+        return $chartPier;
+    }
+    
+    #[Title('SISEDU-DIÁRIO - Dashboard')] 
+    public function render()
+    {
+        $page = 'Dashboard';
+        
+         
+        
 
 
         return view('livewire.dashboard',[
             'page' => $page,
-            'chartBar' => $chartBar,
-            'chartPier' => $chartPier,
-            'chartLine' => $chartLine
+            'chartBar' => $this->barChart(),
+            'chartPier' => $this->pieChart(),
+            'chartLine' => $this->lineChart()
         ]);
     }
 
