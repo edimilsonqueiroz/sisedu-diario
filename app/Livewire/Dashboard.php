@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Livewire\Attributes\Title;
-use Livewire\Attributes\Computed;
 use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 
 class Dashboard extends Component
