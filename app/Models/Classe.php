@@ -10,6 +10,11 @@ class Classe extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'school_id',
+        'name',
+        'year',
+        'active',
+        'startDate',
+        'endDate'
     ];
 }

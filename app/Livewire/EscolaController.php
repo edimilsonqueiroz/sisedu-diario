@@ -26,6 +26,55 @@ class EscolaController extends Component
         $this->form->reset();
     }
 
+    public function openDeleteSchool()
+    {
+        $openSchoolDelete = count($this->form->schoolDelete);
+        if($openSchoolDelete > 0){
+            $this->dispatch('open-modal', name:'delete-escola');
+        }else{
+            $this->alert('error', 'Você precisa selecionar uma escola!',[
+                'position' => 'top',
+                'toast' => true,
+                'width' => 400
+            ]);
+        }
+    }
+
+    public function deleteSchool()
+    {
+        $schoolDestroy = count($this->form->schoolDelete);
+        if($schoolDestroy > 0){
+            $this->form->destroy();
+            $this->alert('success', 'Registro excluido com sucesso!',[
+                'position' => 'top',
+                'toast' => true,
+                'width' => 400
+            ]);
+        }else{
+            $this->alert('error', 'Você não selecionou nenhum registro!',[
+                'position' => 'top',
+                'toast' => true,
+                'width' => 400
+            ]);
+        }
+    }
+
+    public function openEditSchool(School $school)
+    {
+        $this->form->setSchool($school);
+        $this->dispatch('open-modal', name: 'editar-escola');
+    }
+
+    public function update()
+    {
+        $this->form->updateForm();
+        $this->alert('success', 'Escola alterada com sucesso!',[
+            'position' => 'top',
+            'toast' => true,
+            'width' => 380
+        ]);
+    }
+
     public function save()
     {
         $this->form->store();

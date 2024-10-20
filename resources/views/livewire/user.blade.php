@@ -7,7 +7,7 @@
      <input wire:model.live="query" placeholder="Pesquisar" type="text" class="border-2 outline-none rounded p-2 w-full md:w-[50%] border-gray-300">
      <div class="md:w-[50%] py-5 md:py-0 flex font-semibold items-center justify-center md:justify-center">
         <button x-data x-on:click="$dispatch('open-modal', { name: 'cadastro-usuario' })" class="border-2 border-teal-500 bg-teal-500 rounded-md shadow-md px-2 mx-2"><i class="bi bi-person-fill-add"></i> Novo Usuário</button>
-        <button wire:click="openDeleteUser()" class="border-2 border-red-400 bg-red-400 rounded-md shadow-md px-2 mx-2"><i class="bi bi-trash"></i> Excluir</button>
+        <button wire:click.prevent="openDeleteUser()" class="border-2 border-red-400 bg-red-400 rounded-md shadow-md px-2 mx-2"><i class="bi bi-trash"></i> Excluir</button>
      </div>
   </div>
 <div class="relative w-full bg-slate-50 p-5 overflow-x-auto overflow-y-auto shadow-md sm:rounded-lg">

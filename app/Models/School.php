@@ -12,7 +12,7 @@ class School extends Model
     protected $fillable = [
         'name',
         'email',
-        'endereco',
-        'telefone'
+        'address',
+        'telephone'
     ];
 }
