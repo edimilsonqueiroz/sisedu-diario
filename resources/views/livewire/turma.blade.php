@@ -74,15 +74,45 @@
    @include('components/footer')
 
 
-   <!--- MODAIS --->
-   <form>
-        <x-modal.modal-md name="cadastro-turma" title="Cadastro de turma">
+   <!--- MODAL DE CADASTRO --->
+   <form wire:submit.prevent="save">
+        <x-modal.modal-lg name="cadastro-turma" title="Cadastro de turma">
             <x-slot:body>
-                <div class="grid grid-cols-1 gap-2">
+                <div class="grid md:grid-cols-2 grid-cols-1 gap-2">
                     <div class="flex flex-col p-1">
                         <label for="">Nome da turma</label>
-                        <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                        
+                        <input wire:model="form.name"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                        @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="flex flex-col p-1">
+                        <label for="">Escola</label>
+                        <select wire:model="form.school_id" class="p-2 outline-none border-2 border-gray-300 rounded">
+                            <option>Selecione uma escola</option>
+                            @foreach($schools as $school)
+                                <option value="{{$school->id}}">{{$school->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('form.school_id') <span class="text-red-400">{{ $message }}</span> @enderror
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 grid-cols-1 gap-2">
+                    
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="flex flex-col p-1">
+                        <label for="">Ano da turma</label>
+                        <input wire:model="form.year"  class="p-2 outline-none border-2 border-gray-300 rounded" type="number">
+                        @error('form.year') <span class="text-red-400">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="flex flex-col p-1">
+                        <label for="">Data de início</label>
+                        <input wire:model="form.startDate" type="date"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                        @error('form.startDate') <span class="text-red-400">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="flex flex-col p-1">
+                        <label for="">Data de conclusão</label>
+                        <input wire:model="form.endDate" type="date"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                        @error('form.endDate') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </x-slot>
@@ -90,12 +120,12 @@
                 <div x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md cursor-pointer"><i class="bi bi-x-lg"></i> Fechar</div>
                 <button type="submit" class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Cadastrar</button>
             </x-slot>
-        </x-modal.modal-md>
+        </x-modal.modal-lg>
     </form>
 
-    <!-- MODAL EDITAR USUARIO -->
+    <!-- MODAL EDITAR -->
     <form wire:submit.prevent="update">
-        <x-modal.modal-md name="editar-turma" title="Alterar turma">
+        <x-modal.modal-lg name="editar-turma" title="Alterar turma">
             <x-slot:body>
                 <div class="grid grid-cols-1 gap-2">
                     <div class="flex flex-col p-1">
@@ -109,7 +139,7 @@
                 <div x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md cursor-pointer"><i class="bi bi-x-lg"></i> Fechar</div>
                 <button type="submit" class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Editar</button>
             </x-slot>
-        </x-modal.modal-md>
+        </x-modal.modal-lg>
     </form>
 
     <x-modal.confirmation name="delete-escola" title="Confirmação">

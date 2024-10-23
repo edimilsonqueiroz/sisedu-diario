@@ -15,7 +15,7 @@
         <div class="flex h-auto flex-col">
             <div class="h-10 max-h-10 p-3 flex items-center bg-slate-100 rounded-tl rounded-tr">
                 @if(isset($title))
-                <div class="py-3 flex items-center justify-center">{{ $title}}</div>
+                <div class="py-3 flex items-center font-semibold uppercase justify-center">{{ $title}}</div>
                 @endif
             </div>
             <div class="flex-1">
@@ -23,7 +23,7 @@
                     {{ $body }}
                 </div>
             </div>
-            <div class="h-10  max-h-10 p-3 flex items-center rounded-bl rounded-br bg-slate-100">{{ $footer }}</div>
+            <div class="h-10  max-h-10 p-3 flex items-center text-xl justify-end rounded-bl rounded-br bg-slate-100">{{ $footer }}</div>
         </div>
     </div>
 </div>

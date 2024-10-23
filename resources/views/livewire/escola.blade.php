@@ -94,13 +94,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Endereço</label>
-                            <input required wire:model="form.endereco"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                            @error('form.endereco') <span class="text-red-400">{{ $message }}</span> @enderror
+                            <input required wire:model="form.address"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.address') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col p-1">
                             <label for="">Telefone</label>
-                            <input required wire:model="form.telefone"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                            @error('form.telefone') <span class="text-red-400">{{ $message }}</span> @enderror
+                            <input required wire:model="form.telephone"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.telephone') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                 </x-slot>
@@ -130,13 +130,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Endereço</label>
-                            <input wire:model="form.endereco"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                            @error('form.endereco') <span class="text-red-400">{{ $message }}</span> @enderror
+                            <input wire:model="form.address"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.address') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col p-1">
                             <label for="">Telefone</label>
-                            <input wire:model="form.telefone"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                            @error('form.telefone') <span class="text-red-400">{{ $message }}</span> @enderror
+                            <input wire:model="form.telephone"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.telephone') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                 </x-slot>

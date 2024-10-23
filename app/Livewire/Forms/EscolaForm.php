@@ -12,7 +12,7 @@ use Exception;
 
 class EscolaForm extends Form
 {
-  #[Locked] 
+    #[Locked] 
     public $schoolId = '';
     #[Validate('required|string')]
     public string $name = '';
@@ -21,10 +21,10 @@ class EscolaForm extends Form
     public string $email = '';
 
     #[Validate('required|string')]
-    public string $endereco = '';
+    public string $address = '';
 
     #[Validate('required|string')]
-    public string $telefone = '';
+    public string $telephone = '';
 
     public array $schoolDelete = [];
 
@@ -51,8 +51,8 @@ class EscolaForm extends Form
       $this->schoolId = $school->id;
       $this->name = $school->name;
       $this->email = $school->email;
-      $this->endereco = $school->endereco;
-      $this->telefone = $school->telefone;
+      $this->address = $school->address;
+      $this->telephone = $school->telephone;
   }
 
   public function updateForm()
@@ -64,8 +64,8 @@ class EscolaForm extends Form
     $this->school->update([
       'name' => $this->name,
       'email' => $this->email,
-      'endereco' => $this->endereco,
-      'telefone' => $this->telefone
+      'address' => $this->address,
+      'telephone' => $this->telephone
     ]);
   }
 
