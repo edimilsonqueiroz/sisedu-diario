@@ -28,7 +28,7 @@ class TurmaController extends Component
     public function save()
     {
         $this->form->store();
-        $this->alert('success', 'Escola cadastrada com sucesso!',[
+        $this->alert('success', 'Turma cadastrada com sucesso!',[
             'position' => 'top',
             'toast' => true,
             'width' => 380

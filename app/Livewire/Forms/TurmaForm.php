@@ -5,7 +5,7 @@ namespace App\Livewire\Forms;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 use Livewire\Attributes\Locked;
-use App\Models\Classe;
+use App\Models\Turma;
 
 class TurmaForm extends Form
 {
@@ -34,13 +34,13 @@ class TurmaForm extends Form
 
     public array $classeDelete = [];
 
-    public ?Classe $classe;
+    public ?Turma $turma;
 
 
     public function store()
     {
         $this->validate();
-        Classe::create([
+        Turma::create([
             'school_id'=>intval($this->school_id),
             'name'=>$this->name,
             'year'=>intval($this->year),
