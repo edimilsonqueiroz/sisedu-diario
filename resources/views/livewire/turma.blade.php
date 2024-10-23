@@ -37,7 +37,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    @foreach($turmas as $turma)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="w-4 p-4">
                             <div class="flex items-center">
@@ -46,23 +46,25 @@
                             </div>
                         </td>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            
+                            {{$turma->name}}
+                        </th>
+                        @foreach($turma->school()->get() as $escola)
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{$escola->name}}
+                        </th>
+                        @endforeach
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{$turma->year}}
                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            
-                        </th>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            
-                        </th>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            
+                            @if($turma->active) Aberta @else Fechada @endif
                         </th>
                         <td class="px-6 py-4 flex text-[16px]">
                             <button class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
                             <button  class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-person-fill-lock"></i> Informações da turma</button>
                         </td>
                     </tr>
-                    
+                    @endforeach
                 </tbody>
             </table>
         </div>

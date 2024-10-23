@@ -22,7 +22,7 @@ class TurmaForm extends Form
     public $year = '';
 
     #[Validate('required', message:'O campo status é obrigatório')]
-    public  $active = '';
+    public  $active = true;
 
     #[Validate('required', message:'O campo data de início é obrigatório')]
     public $startDate = '';
@@ -39,15 +39,7 @@ class TurmaForm extends Form
 
     public function store()
     {
-        $this->validate();
-        Turma::create([
-            'school_id'=>intval($this->school_id),
-            'name'=>$this->name,
-            'year'=>intval($this->year),
-            'active'=>true,
-            'startDate'=>date('Y-m-d',strtotime($this->startDate)),
-            'endDate'=>date('Y-m-d',strtotime($this->endDate))
-        ]);
+        Turma::create($this->validate());
         $this->reset();
     }
 }

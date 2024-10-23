@@ -9,6 +9,7 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\On;
 use App\Livewire\Forms\TurmaForm;
 use App\Models\School;
+use App\Models\Turma;
 
 class TurmaController extends Component
 {
@@ -40,10 +41,12 @@ class TurmaController extends Component
     {
         $page = "Classes";
         $schools = School::all();
+        $turmas = Turma::all();
 
         return view('livewire.turma',[
             'page' => $page,
-            'schools' => $schools
+            'schools' => $schools,
+            'turmas' => $turmas
         ]);
     }
 }
