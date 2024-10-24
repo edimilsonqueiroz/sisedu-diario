@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    @foreach($disciplines as $discipline)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="w-4 p-4">
                             <div class="flex items-center">
@@ -37,14 +37,13 @@
                             </div>
                         </td>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            
+                            {{$discipline->name}}
                         </th>
                         <td class="px-6 py-4 flex text-[16px]">
-                            <button class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
-                            <button  class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-person-fill-lock"></i> Informações</button>
+                            <button wire:click.prevent="openEditDiscipline({{$discipline->id}})" class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
                         </td>
                     </tr>
-                    
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -57,17 +56,16 @@
 
 
    <!--- MODAIS --->
-   <form>
+   <form wire:submit.prevent="save">
         <x-modal.modal-md name="cadastro-disciplina" title="Cadastro de disciplina">
                 <x-slot:body>
                     <div class="grid grid-cols-1 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Nome</label>
-                            <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                           
+                            <input wire:model="form.name" required  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
-          
                 </x-slot>
                 <x-slot:footer>
                     <div x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md cursor-pointer"><i class="bi bi-x-lg"></i> Fechar</div>
@@ -78,49 +76,16 @@
 
     <!-- MODAL EDITAR USUARIO -->
      <form wire:submit.prevent="update">
-        <x-modal.modal-md name="editar-usuario" title="Editar usuário">
+        <x-modal.modal-md name="editar-disciplina" title="Editar disciplina">
             <x-slot:body>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div class="grid grid-cols-1 gap-2">
                     <div class="flex flex-col p-1">
                         <label for="">Nome</label>
-                        <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                        
-                    </div>
-                    <div class="flex flex-col p-1">
-                        <label for="">E-mail</label>
-                        <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="email">
-                        
+                        <input wire:model="form.name" required  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                        @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <div class="flex flex-col p-1">
-                        <label for="">CPF</label>
-                        <input required  maxlength="11" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                       
-                    </div>
-                    <div class="flex flex-col p-1">
-                        <label for="">Senha</label>
-                        <input  class="p-2 outline-none border-2 border-gray-300 rounded" type="password">
-                        
-                    </div>
-                </div>
-                <fieldset class="border-2 border-gray-300 w-full rounded-md">
-                    <legend class="font-semibold">Perfil de Usuário</legend>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 p-2">
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">ADMINISTRADOR</label>
-                            </div>
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox"   class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">PROFESSOR(A)</label>
-                            </div>
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">COORDENADOR(A)</label>
-                            </div>
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">SECRETARIA ESCOLAR</label>
-                            </div>
-                    </div>
-                </fieldset>
+
             </x-slot>
             <x-slot:footer>
                 <div x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md cursor-pointer"><i class="bi bi-x-lg"></i> Fechar</div>

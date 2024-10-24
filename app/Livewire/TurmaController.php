@@ -26,6 +26,55 @@ class TurmaController extends Component
         $this->form->reset();
     }
 
+    public function openDeleteTurma()
+    {
+        $openTurmaDelete = count($this->form->turmaDelete);
+        if($openTurmaDelete > 0){
+            $this->dispatch('open-modal', name:'delete-turma');
+        }else{
+            $this->alert('error', 'Você precisa selecionar uma turma!',[
+                'position' => 'top',
+                'toast' => true,
+                'width' => 400
+            ]);
+        }
+    }
+
+    public function deleteTurma()
+    {
+        $turmaDestroy = count($this->form->turmaDelete);
+        if($turmaDestroy > 0){
+            $this->form->destroy();
+            $this->alert('success', 'Registro excluido com sucesso!',[
+                'position' => 'top',
+                'toast' => true,
+                'width' => 400
+            ]);
+        }else{
+            $this->alert('error', 'Você não selecionou nenhum registro!',[
+                'position' => 'top',
+                'toast' => true,
+                'width' => 400
+            ]);
+        }
+    }
+
+    public function openEditTurma(Turma $turma)
+    {
+        $this->form->setTurma($turma);
+        $this->dispatch('open-modal', name: 'editar-turma');
+    }
+
+    public function update()
+    {
+        $this->form->updateForm();
+        $this->alert('success', 'Turma alterada com sucesso!',[
+            'position' => 'top',
+            'toast' => true,
+            'width' => 380
+        ]);
+    }
+
     public function save()
     {
         $this->form->store();

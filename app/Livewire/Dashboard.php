@@ -48,12 +48,12 @@ class Dashboard extends Component
         $chartBar = Chartjs::build()
          ->name('barChartTest')
          ->type('bar')
-         ->labels(['5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
+         ->labels(['1º ANO','2º ANO','3º ANO','4º ANO','5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
          ->datasets([
              [
                  "label" => "REPROVAÇÃO POR TURMA",
-                 'backgroundColor' => ['#527aba', '#527aba','#527aba','#527aba','#527aba'],
-                 'data' => [15, 12, 20, 19, 5]
+                 'backgroundColor' => ['#527aba','#527aba','#527aba','#527aba', '#527aba','#527aba','#527aba','#527aba','#527aba'],
+                 'data' => [15, 12, 20, 19, 5,1,3,8,4]
              ]
          ])
          ->options([
@@ -74,13 +74,13 @@ class Dashboard extends Component
         $chartPier = app()->chartjs
         ->name('pieChartTest')
         ->type('pie')
-        ->labels(['5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
+        ->labels(['1º ANO','2º ANO','3º ANO','4º ANO','5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
         ->datasets([
             [
                 'label'=>'MATRICULAS POR TURMA',
-                'backgroundColor' => ['#FF6384', '#36A2EB','#32a852','#8f32a8','#ed2f33'],
+                'backgroundColor' => ['#2F4F4F','#4B0082','#800000','#008B8B','#FF6384', '#36A2EB','#32a852','#8f32a8','#ed2f33'],
                 'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
-                'data' => [69, 59, 10, 25, 30]
+                'data' => [15, 10, 18, 69, 59, 10, 25, 30, 25]
             ]
         ])
         ->options([
