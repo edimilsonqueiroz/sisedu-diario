@@ -13,9 +13,11 @@ use App\Livewire\TurmaAluno;
 use App\Livewire\TurmaProfessor;
 use App\Livewire\TurmaDisciplina;
 use App\Livewire\MatriculaController;
+use App\Livewire\ResetPassword;
 
 
 Route::get('/', LoginController::class)->name('login');
+Route::get('/reset-password',ResetPassword::class)->name('reset-password');
 
 Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('/', Dashboard::class)->name('dashboard');
