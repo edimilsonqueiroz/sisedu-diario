@@ -22,6 +22,9 @@ class UserForm extends Form
     #[Validate('required|min:11|max:11|string|unique:users')]
     public string $cpf = '';
 
+    #[Validate('required|min:11|max:11|string|unique:users')]
+    public string $whatsapp = '';
+
     #[Validate('required|min:5|string')]
     public string $password = '';
 
@@ -60,6 +63,7 @@ class UserForm extends Form
         $this->name = $user->name;
         $this->email = $user->email;
         $this->cpf = $user->cpf;
+        $this->whatsapp = $user->whatsapp;
         $this->isAdmin = $user->isAdmin;
         $this->isProfessor = $user->isProfessor;
         $this->isCoordenador = $user->isCoordenador;
@@ -70,7 +74,8 @@ class UserForm extends Form
     {
         $this->validate([
             'email' => ['required', Rule::unique('users')->ignore($this->user)],
-            'cpf' => ['required', Rule::unique('users')->ignore($this->user)]
+            'cpf' => ['required', Rule::unique('users')->ignore($this->user)],
+            'whatsapp' => ['required', Rule::unique('users')->ignore($this->user)]
         ]);
 
         if(!$this->password){
@@ -78,6 +83,7 @@ class UserForm extends Form
                 'name' => $this->name,
                 'email' => $this->email,
                 'cpf' => $this->cpf,
+                'whatsapp' => $this->whatsapp,
                 'isAdmin' => $this->isAdmin,
                 'isProfessor' => $this->isProfessor,
                 'isCoordenador' => $this->isCoordenador,

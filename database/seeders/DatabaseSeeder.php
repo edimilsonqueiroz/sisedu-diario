@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Edimilson Francisco de Queiroz',
             'email' => 'edimilsonqueiroz681@gmail.com',
             'cpf'=> '00220832196',
+            'whatsapp' => '63992448880',
             'password'=>bcrypt('efq170880'),
             'isAdmin'=>true,
             'isProfessor' => false,

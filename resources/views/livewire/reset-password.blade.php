@@ -19,9 +19,9 @@
                 @endif
             </div>
             <form wire:submit.prevent="generateOTP"  class="flex flex-col w-full px-5 md:px-20">
-                <label class="text-xl">E-mail</label> 
-                <input placeholder="Informe seu e-mail cadastrado" required class="border-2 px-2 py-3 text-xl outline-none rounded-md border-gray-300" type="email">
-                @error('') <span class="text-red-400">{{ $message }}</span> @enderror
+                <label class="text-xl">CPF</label> 
+                <input wire:model="cpf" required placeholder="Informe seu CPF" class="border-2 px-2 py-3 text-xl outline-none rounded-md border-gray-300" type="text">
+                @error('cpf') <span class="text-red-400">{{ $message }}</span> @enderror
                 <div class="w-full flex flex-col-reverse md:flex-row items-center justify-between">
                     <a wire:navigate class="text-xl"  href="{{route('login')}}">Voltar para login?</a>
                     <button class="bg-cyan-500 mb-5 mt-8 py-3 w-full md:w-[50%] text-xl text-white rounded-md border-0">Solicitar alteração da senha</button>

@@ -79,16 +79,23 @@
    <form wire:submit.prevent="save">
         <x-modal.modal-md name="cadastro-usuario" title="Cadastro de usuário">
                 <x-slot:body>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div class="grid grid-cols-1 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Nome</label>
                             <input required wire:model="form.name" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
                             @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">E-mail</label>
                             <input required wire:model="form.email" class="p-2 outline-none border-2 border-gray-300 rounded" type="email">
                             @error('form.email') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">Whatsapp</label>
+                            <input required wire:model="form.whatsapp" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.whatsapp') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -132,16 +139,23 @@
      <form wire:submit.prevent="update">
         <x-modal.modal-md name="editar-usuario" title="Editar usuário">
             <x-slot:body>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div class="grid grid-cols-1 gap-2">
                     <div class="flex flex-col p-1">
                         <label for="">Nome</label>
                         <input required wire:model="form.name" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
                         @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div class="flex flex-col p-1">
                         <label for="">E-mail</label>
                         <input required wire:model="form.email" class="p-2 outline-none border-2 border-gray-300 rounded" type="email">
                         @error('form.email') <span class="text-red-400">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="flex flex-col p-1">
+                        <label for="">Whatsapp</label>
+                        <input required wire:model="form.whatsapp" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                        @error('form.whatsapp') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">

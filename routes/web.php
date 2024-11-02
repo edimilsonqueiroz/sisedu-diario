@@ -19,7 +19,7 @@ use App\Livewire\ValidateCode;
 
 Route::get('/', LoginController::class)->name('login');
 Route::get('/reset-password',ResetPassword::class)->name('reset-password');
-Route::get('/validate-code',ValidateCode::class)->name('validate-code');
+Route::get('/{cpf}/validate-code',ValidateCode::class)->name('validate-code');
 
 Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('/', Dashboard::class)->name('dashboard');

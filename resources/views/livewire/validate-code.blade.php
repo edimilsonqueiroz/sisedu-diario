@@ -9,7 +9,7 @@
             <div class="flex items-center justify-center flex-col">
                 <x-icones.icone-school/>
                 <h1 class="text-5xl font-semibold">SISEDU-DIÁRIO</h1>
-                <span class="text-2xl">Acesso de Usuário</span>
+                <span class="text-2xl mt-3">Código de Confirmação do Usuário</span>
             </div>
             <div class="w-full md:px-20 md:my-5">
                 @if (session('login'))
@@ -19,14 +19,13 @@
                 @endif
             </div>
             <form  class="flex flex-col w-full px-5 md:px-20">
-                
                 <div class="w-full flex items-center my-5 otp-area">
-                    <input  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
+                    <input wire:model="code_1" minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
+                    <input wire:model="code_2"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
+                    <input wire:model="code_3"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
+                    <input wire:model="code_4"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
+                    <input wire:model="code_5"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
+                    <input wire:model="code_6"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
                 </div>
                 <div class="w-full flex flex-col-reverse md:flex-row items-center justify-between">
                     <button class="bg-cyan-500 mb-5 mt-8 py-3 w-full md:w-[50%] text-xl text-white rounded-md border-0">Validar código</button>
