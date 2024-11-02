@@ -13,6 +13,7 @@ use App\Livewire\TurmaAluno;
 use App\Livewire\TurmaProfessor;
 use App\Livewire\TurmaDisciplina;
 use App\Livewire\MatriculaController;
+use App\Livewire\Profile;
 use App\Livewire\ResetPassword;
 use App\Livewire\ValidateCode;
 
@@ -23,6 +24,7 @@ Route::get('/{cpf}/validate-code',ValidateCode::class)->name('validate-code');
 
 Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('/', Dashboard::class)->name('dashboard');
+    Route::get('/profile', Profile::class)->name('profile');
     Route::get('/logout',[LogoutController::class, 'logout'])->name('logout');
     Route::get('/users', UserController::class)->name('users');
     Route::get('/schools', EscolaController::class)->name('escolas');

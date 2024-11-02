@@ -12,9 +12,9 @@
                 <span class="text-2xl">Acesso de Usuário</span>
             </div>
             <div class="w-full md:px-20 md:my-5">
-                @if (session('login'))
+                @if (session('cpf'))
                 <div class="bg-red-400 rounded text-lg text-center p-5">
-                    {{ session('login') }}
+                    {{ session('cpf') }}
                 </div>
                 @endif
             </div>

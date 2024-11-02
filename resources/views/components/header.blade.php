@@ -119,7 +119,7 @@
             </header>
             <div id="logout" x-show="open"  @click.outside="open = false" class="fixed hidden shadow-md rounded-md top-12 right-16 w-40 h-20 z-20 bg-slate-200">
                <ul class="h-full w-full">
-                    <li class="hover:bg-slate-300 w-full flex rounded-tl-md rounded-tr-md py-2 px-2"><i class="bi bi-person-fill mr-2"></i><a class="w-full" href="/dashboard/profile">Perfil</a></li>
+                    <li class="hover:bg-slate-300 w-full flex rounded-tl-md rounded-tr-md py-2 px-2"><i class="bi bi-person-fill mr-2"></i><a wire:navigate class="w-full" href="/dashboard/profile">Perfil</a></li>
                     <li class="hover:bg-slate-300 w-full flex rounded-bl-md rounded-br-md py-2 px-2"><a class="w-full" href="/dashboard/logout"><i class="bi bi-box-arrow-left mr-2"></i>Sair do Sistema</a></li>
                </ul>
             </div>

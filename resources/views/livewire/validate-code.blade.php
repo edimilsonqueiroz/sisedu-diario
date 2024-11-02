@@ -12,20 +12,20 @@
                 <span class="text-2xl mt-3">Código de Confirmação do Usuário</span>
             </div>
             <div class="w-full md:px-20 md:my-5">
-                @if (session('login'))
+                @if (session('validate-code'))
                 <div class="bg-red-400 rounded text-lg text-center p-5">
-                    {{ session('login') }}
+                    {{ session('validate-code') }}
                 </div>
                 @endif
             </div>
-            <form  class="flex flex-col w-full px-5 md:px-20">
+            <form wire:submit.prevent="generatePasswordAction"  class="flex flex-col w-full px-5 md:px-20">
                 <div class="w-full flex items-center my-5 otp-area">
-                    <input wire:model="code_1" minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input wire:model="code_2"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input wire:model="code_3"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input wire:model="code_4"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input wire:model="code_5"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
-                    <input wire:model="code_6"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md border-gray-300"/>
+                    <input wire:model="code_1" minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md  @error('code_1') border-red-600 @enderror border-gray-300"/>
+                    <input wire:model="code_2"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md @error('code_2') border-red-600 @enderror border-gray-300"/>
+                    <input wire:model="code_3"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md @error('code_3') border-red-600 @enderror border-gray-300"/>
+                    <input wire:model="code_4"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md @error('code_4') border-red-600 @enderror border-gray-300"/>
+                    <input wire:model="code_5"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md @error('code_5') border-red-600 @enderror border-gray-300"/>
+                    <input wire:model="code_6"  minlength="1" maxlength="1" class="border-2 text-center w-[15%] m-1 px-2 py-3 font-semibold text-2xl outline-none rounded-md @error('code_6') border-red-600 @enderror border-gray-300"/>
                 </div>
                 <div class="w-full flex flex-col-reverse md:flex-row items-center justify-between">
                     <button class="bg-cyan-500 mb-5 mt-8 py-3 w-full md:w-[50%] text-xl text-white rounded-md border-0">Validar código</button>
