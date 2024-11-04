@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\User;
-use App\Models\Permission;
 use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,20 +25,24 @@ class AppServiceProvider extends ServiceProvider
             return $user->isProfessor && $user->isCoordenador;
         });
 
-        Gate::define('professor', function(){
-
+        Gate::define('professor', function(User $user){
+            return $user->isProfessor;
         });
 
-        Gate::define('secretaria', function(){
-
+        Gate::define('secretaria', function(User $user){
+            return $user->isSecretaria;
         });
 
-        Gate::define('coordenador', function(){
-
+        Gate::define('coordenador', function(User $user){
+            return $user->isCoordenador;
         });
 
         Gate::define('administrador', function(User $user){
             return $user->isAdmin;
+        });
+
+        Gate::define('aluno', function(User $user){
+            return $user->isAluno;
         });
     }
 }

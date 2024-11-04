@@ -8,16 +8,17 @@
             
             <nav class="flex-1 bg-slate-500 py-5 w-full overflow-y-auto">
                     
-                    <ul  class="w-full px-3 text-gray-100 text-lg font-semibold">
-                        <li class="hover:bg-gray-300 mt-2  flex items-center w-full @if($page == 'Dashboard') my-1 bg-gray-300 text-gray-700 @endif hover:text-gray-700 rounded-md p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                            </svg>
+                <ul  class="w-full px-3 text-gray-100 text-lg font-semibold">
+                    <li class="hover:bg-gray-300 mt-2  flex items-center w-full @if($page == 'Dashboard') my-1 bg-gray-300 text-gray-700 @endif hover:text-gray-700 rounded-md p-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
 
-                            <a class="w-full ml-1" href="{{route('dashboard')}}">Home</a>
-                        </li>
-                    </ul>
-                    <div class="bg-slate-700 text-slate-200 pl-4 mt-5 mb-2 py-2 font-semibold">CADASTRO</div>
+                        <a class="w-full ml-1" href="{{route('dashboard')}}">Home</a>
+                    </li>
+                </ul>
+               
+                <div class="bg-slate-700 text-slate-200 pl-4 mt-5 mb-2 py-2 font-semibold">CADASTRO</div>
                     <ul class="w-full px-3 text-gray-100 text-lg font-semibold">
                         <li class="hover:bg-gray-300 w-full flex items-center @if($page == 'User') my-1 bg-gray-300 text-gray-700 @endif hover:text-gray-700 rounded-md p-3">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
@@ -56,6 +57,8 @@
                         </li>
                         
                     </ul>
+             
+                @can('secretaria')
                 <div class="bg-slate-700 text-slate-200 pl-4 my-2 py-2 font-semibold">MOVIMENTO</div>
                 <ul class="w-full px-3 text-gray-100 text-lg font-semibold">
                     <li class="hover:bg-gray-300 w-full flex items-center @if($page == 'MovimentoTurmas') my-1 bg-gray-300 text-gray-700 @endif hover:text-gray-700 rounded-md p-3">
@@ -66,6 +69,8 @@
                         <a wire:navigate class="w-full ml-1" href="{{route('movimento-turmas')}}">Turmas</a>
                     </li>
                 </ul>
+                @endcan
+                @can('professor')
                 <div class="bg-slate-700 text-slate-200 pl-4 my-2 py-2 font-semibold">MINHAS TURMAS</div>
                 <ul class="w-full px-3 text-gray-100 text-lg font-semibold">
                     <li class="hover:bg-gray-300 w-full flex items-center @if($page == 'Escola') my-1 bg-gray-300 text-gray-700 @endif hover:text-gray-700 rounded-md p-3">
@@ -77,6 +82,8 @@
                         <a wire:navigate class="w-full ml-1" href="#">Acessar turmas</a>
                     </li>
                 </ul>
+                @endcan
+                @can('coordenador')
                 <div class="bg-slate-700 text-slate-200 pl-4 my-2 py-2 font-semibold">ACOMPANHAMENTO</div>
                 <ul class="w-full px-3 text-gray-100 text-lg font-semibold">
                     <li class="hover:bg-gray-300 w-full flex items-center @if($page == 'Coordenacao') my-1 bg-gray-300 text-gray-700 @endif hover:text-gray-700 rounded-md p-3">
@@ -88,6 +95,7 @@
                         <a wire:navigate class="w-full ml-1" href="#">Acompanhar turmas</a>
                     </li>
                 </ul>
+                @endcan
                 
                 <div class="bg-slate-700 text-slate-200 pl-4 mt-2 py-2 font-semibold">CONFIGURAÇÕES DA CONTA</div>
             </nav>

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('isProfessor')->nullable();
             $table->boolean('isCoordenador')->nullable();
             $table->boolean('isSecretaria')->nullable();
+            $table->boolean('isAluno')->nullable();
             $table->boolean('active')->default(true);
             $table->rememberToken();
             $table->timestamps();
