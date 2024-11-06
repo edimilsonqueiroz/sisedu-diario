@@ -16,7 +16,7 @@ class Dashboard extends Component
         ->name('lineChartTest')
         ->type('line')
         ->size(['width' => 400, 'height' => 200])
-        ->labels(['5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
+        ->labels(['1º ANO', '2º ANO', '3º ANO','4º ANO'])
         ->datasets([
             [
                 "label" => "TOTAL DE EVASÃO POR TURMA",
@@ -26,7 +26,7 @@ class Dashboard extends Component
                 "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
                 "pointHoverBackgroundColor" => "#fff",
                 "pointHoverBorderColor" => "rgba(220,220,220,1)",
-                "data" => [65, 59, 80, 81, 56, 55],
+                "data" => [5, 3, 2, 6],
                 "fill" => false,
             ]
         ])
@@ -48,12 +48,12 @@ class Dashboard extends Component
         $chartBar = Chartjs::build()
          ->name('barChartTest')
          ->type('bar')
-         ->labels(['1º ANO','2º ANO','3º ANO','4º ANO','5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
+         ->labels(['1º ANO','2º ANO','3º ANO','4º ANO'])
          ->datasets([
              [
                  "label" => "REPROVAÇÃO POR TURMA",
-                 'backgroundColor' => ['#527aba','#527aba','#527aba','#527aba', '#527aba','#527aba','#527aba','#527aba','#527aba'],
-                 'data' => [15, 12, 20, 19, 5,1,3,8,4]
+                 'backgroundColor' => ['#527aba','#527aba','#527aba','#527aba'],
+                 'data' => [15, 14, 20, 19]
              ]
          ])
          ->options([
@@ -74,13 +74,13 @@ class Dashboard extends Component
         $chartPier = app()->chartjs
         ->name('pieChartTest')
         ->type('pie')
-        ->labels(['1º ANO','2º ANO','3º ANO','4º ANO','5º ANO', '6º ANO', '7º ANO','8º ANO', '9º ANO'])
+        ->labels(['1º ANO','2º ANO','3º ANO','4º ANO'])
         ->datasets([
             [
                 'label'=>'MATRICULAS POR TURMA',
-                'backgroundColor' => ['#2F4F4F','#4B0082','#800000','#008B8B','#FF6384', '#36A2EB','#32a852','#8f32a8','#ed2f33'],
+                'backgroundColor' => ['#2F4F4F','#4B0082','#800000','#008B8B'],
                 'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
-                'data' => [15, 10, 18, 69, 59, 10, 25, 30, 25]
+                'data' => [15, 10, 18, 69]
             ]
         ])
         ->options([

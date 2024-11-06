@@ -17,7 +17,7 @@
                         <a class="w-full ml-1" href="{{route('dashboard')}}">Home</a>
                     </li>
                 </ul>
-               
+               @can('admin-secretaria')
                 <div class="bg-slate-700 text-slate-200 pl-4 mt-5 mb-2 py-2 font-semibold">CADASTRO</div>
                     <ul class="w-full px-3 text-gray-100 text-lg font-semibold">
                         <li class="hover:bg-gray-300 w-full flex items-center @if($page == 'User') my-1 bg-gray-300 text-gray-700 @endif hover:text-gray-700 rounded-md p-3">
@@ -57,7 +57,7 @@
                         </li>
                         
                     </ul>
-             
+                @endcan
                 @can('secretaria')
                 <div class="bg-slate-700 text-slate-200 pl-4 my-2 py-2 font-semibold">MOVIMENTO</div>
                 <ul class="w-full px-3 text-gray-100 text-lg font-semibold">
@@ -97,7 +97,23 @@
                 </ul>
                 @endcan
                 
-                <div class="bg-slate-700 text-slate-200 pl-4 mt-2 py-2 font-semibold">CONFIGURAÇÕES DA CONTA</div>
+                <div class="bg-slate-700 text-slate-200 pl-4 mb-2 mt-2 py-2 font-semibold">CONFIGURAÇÕES DA CONTA</div>
+                <ul class="w-full px-3 text-gray-100 text-lg font-semibold">
+                    <li class="hover:bg-gray-300 w-full flex items-center @if($page == 'Profile') my-1 bg-gray-300 text-gray-700 @endif hover:text-gray-700 rounded-md p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+
+                        <a wire:navigate class="w-full ml-1" href="{{route('profile')}}">Perfil</a>
+                    </li>
+                    <li class="hover:bg-gray-300 w-full flex items-center my-1 hover:text-gray-700 rounded-md p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
+                    </svg>
+
+                        <a wire:navigate class="w-full ml-1" href="#">Mudar senha</a>
+                    </li>
+                </ul>
             </nav>
             
             <div class="w-full h-20 flex items-center font-semibold text-gray-100 text-lg justify-center">

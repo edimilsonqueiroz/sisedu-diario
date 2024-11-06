@@ -21,8 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('professorCoordenador', function(User $user){
-            return $user->isProfessor && $user->isCoordenador;
+        Gate::define('admin-secretaria', function(User $user){
+            return $user->isAdmin || $user->isSecretaria;
         });
 
         Gate::define('professor', function(User $user){
