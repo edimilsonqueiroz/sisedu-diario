@@ -1,20 +1,19 @@
 <div class="w-full h-full overflow-x-hidden">
 @include('components/header')
     <div class="p-3 w-full overflow-y-auto">
-        <form wire:submit.pevent="search">
         <div class="bg-white mb-5 w-full rounded-md justify-between items-center flex flex-col md:flex-row p-4 shadow-md">
-            <div class="flex flex-col md:w-[40%] w-full">
+            <div class="flex flex-col md:w-[50%] px-2 w-full">
                 <label class="text-xl" for="">Nome da Escola</label>
-                <select wire:model="school" class="outline-none text-xl border-2 rounded-md p-3 border-gray-400">
+                <select wire:model.live="school" class="outline-none text-xl border-2 rounded-md p-3 border-gray-400">
                     <option value="">Todas as escolas</option>
                     @foreach($schools as $school)
                       <option value="{{$school->id}}">{{$school->name}}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="flex mt-5 md:mt-0 flex-col md:w-[30%] w-full">
+            <div class="flex mt-5 md:mt-0 px-2 flex-col md:w-[50%] w-full">
                 <label class="text-xl" for="">Ano da Turma</label>
-                <select wire:model="year" class="outline-none text-xl border-2 rounded-md p-3 border-gray-400">
+                <select wire:model.live="year" class="outline-none text-xl border-2 rounded-md p-3 border-gray-400">
                     <option value="">Todas os anos</option>
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
@@ -23,14 +22,10 @@
                     <option value="2020">2020</option>
                 </select>
             </div>
-            <div class="flex mt-5 md:mt-0 md:w-[15%] w-full">
-                <button class="rounded-md shadow-md text-xl py-3 px-4 bg-cyan-600">Buscar turma</button>
-            </div>
         </div>
-        </form>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             @foreach($turmas as $turma)
-            <a href="#">
+            <a href="{{route('turma-registro', $turma->id)}}">
                 <div class="bg-slate-100 flex shadow-md rounded-md col-span-1">
                     <div class="rounded-l-md px-2 flex justify-center items-center bg-cyan-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
