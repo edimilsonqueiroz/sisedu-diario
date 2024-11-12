@@ -77,8 +77,112 @@
 
    <!--- MODAIS CADASTRO ALUNO --->
    <form wire:submit.prevent="save">
-        <x-modal.modal-md name="cadastro-aluno" title="Cadastro de aluno">
+        <x-modal.modal-lg name="cadastro-aluno" title="Cadastro de aluno">
                 <x-slot:body>
+                    <div class="grid grid-cols-1 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">Escola</label>
+                            <select wire:model="form.school" class="p-2 outline-none border-2 border-gray-300 rounded">
+                                <option value="">Selecione uma escola</option>
+                                @foreach($schools as $school)
+                                <option value="{{$school->id}}">{{$school->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('form.school') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">Nome</label>
+                            <input wire:model="form.name" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">E-mail</label>
+                            <input wire:model="form.email"  class="p-2 outline-none border-2 border-gray-300 rounded" type="email">
+                            @error('form.email') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">Telefone</label>
+                            <input wire:model="form.telephone" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.telephone') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">CPF</label>
+                            <input wire:model="form.cpf"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.cpf') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">RG</label>
+                            <input wire:model="form.rg" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.rg') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">Sexo</label>
+                            <select wire:model="form.sex" class="p-2 outline-none border-2 border-gray-300 rounded">
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                            </select>
+                            @error('form.sex') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">Nome do pai</label>
+                            <input wire:model="form.fatherName" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.fatherName') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">Nome da mãe</label>
+                            <input wire:model="form.matherName" type="text" class="p-2 outline-none border-2 border-gray-300 rounded">
+                            @error('form.matherName') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">Data de Nascimento</label>
+                            <input wire:model="form.dateBirth" class="p-2 outline-none border-2 border-gray-300 rounded" type="date">
+                            @error('form.dateBirth') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">Turma atual</label>
+                            <select wire:model="form.current_class" class="p-2 outline-none border-2 border-gray-300 rounded">
+                                <option value="1º ANO">1º ANO E.F</option>
+                                <option value="2º ANO">2º ANO E.F</option>
+                                <option value="3º ANO">3º ANO E.F</option>
+                                <option value="4º ANO">4º ANO E.F</option>
+                            </select>
+                            @error('form.current_class') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                </x-slot>
+                <x-slot:footer>
+                    <div x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md cursor-pointer"><i class="bi bi-x-lg"></i> Fechar</div>
+                    <button type="submit" class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Cadastrar</button>
+                </x-slot>
+            </x-modal.modal-lg>
+    </form>
+
+    <!-- MODAL EDITAR MATRICULA -->
+     <form>
+        <x-modal.modal-lg name="editar-aluno" title="Editar aluno">
+                <x-slot:body>
+                    <div class="grid grid-cols-1 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">Escola</label>
+                            <select class="p-2 outline-none border-2 border-gray-300 rounded">
+                                <option value="">Selecione uma escola</option>
+                                @foreach($schools as $school)
+                                <option value="{{$school->id}}">{{$school->name}}</option>
+                                @endforeach
+                            </select>
+                            
+                        </div>
+                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Nome</label>
@@ -93,92 +197,65 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
-                            <label for="">CPF</label>
-                            <input required  maxlength="11" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            <label for="">Telefone</label>
+                            <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
                             
                         </div>
                         <div class="flex flex-col p-1">
-                            <label for="">Senha</label>
-                            <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="password">
+                            <label for="">CPF</label>
+                            <input  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
                             
                         </div>
                     </div>
-                    <fieldset class="border-2 border-gray-300 w-full rounded-md">
-                    <legend class="font-semibold">Perfil de Usuário</legend>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 p-2">
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">ADMINISTRADOR</label>
-                            </div>
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox"   class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">PROFESSOR(A)</label>
-                            </div>
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">COORDENADOR(A)</label>
-                            </div>
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">SECRETARIA ESCOLAR</label>
-                            </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">RG</label>
+                            <input required class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">Sexo</label>
+                            <select class="p-2 outline-none border-2 border-gray-300 rounded">
+                                <option value="">Masculino</option>
+                                <option value="">Feminino</option>
+                            </select>
+                        </div>
                     </div>
-                </fieldset>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">Nome do pai</label>
+                            <input required class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">Nome da mãe</label>
+                            <input type="text" class="p-2 outline-none border-2 border-gray-300 rounded">
+
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col p-1">
+                            <label for="">Data de Nascimento</label>
+                            <input required class="p-2 outline-none border-2 border-gray-300 rounded" type="date">
+                            
+                        </div>
+                        <div class="flex flex-col p-1">
+                            <label for="">Turma atual</label>
+                            <select class="p-2 outline-none border-2 border-gray-300 rounded">
+                                <option value="1º ANO">1º ANO E.F</option>
+                                <option value="2º ANO">2º ANO E.F</option>
+                                <option value="3º ANO">3º ANO E.F</option>
+                                <option value="4º ANO">4º ANO E.F</option>
+                            </select>
+                            
+                        </div>
+                    </div>
                 </x-slot>
                 <x-slot:footer>
                     <div x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md cursor-pointer"><i class="bi bi-x-lg"></i> Fechar</div>
                     <button type="submit" class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Cadastrar</button>
                 </x-slot>
-            </x-modal.modal-md>
-    </form>
-
-    <!-- MODAL EDITAR MATRICULA -->
-     <form>
-        <x-modal.modal-md name="editar-matricula" title="Editar matricula">
-            <x-slot:body>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <div class="flex flex-col p-1">
-                        <label for="">Nome</label>
-                        <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                        
-                    </div>
-                    <div class="flex flex-col p-1">
-                        <label for="">E-mail</label>
-                        <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="email">
-                        
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <div class="flex flex-col p-1">
-                        <label for="">CPF</label>
-                        <input required  maxlength="11" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                        
-                    </div>
-                    <div class="flex flex-col p-1">
-                        <label for="">Senha</label>
-                        <input  class="p-2 outline-none border-2 border-gray-300 rounded" type="password">
-                        
-                    </div>
-                </div>
-                <fieldset class="border-2 border-gray-300 w-full rounded-md">
-                    <legend class="font-semibold">Perfil de Usuário</legend>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 p-2">
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox" wire:model="form.isAdmin" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">ADMINISTRADOR</label>
-                            </div>
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox" wire:model="form.isProfessor"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">PROFESSOR(A)</label>
-                            </div>
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox" wire:model="form.isCoordenador" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">COORDENADOR(A)</label>
-                            </div>
-                            <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox" wire:model="form.isSecretaria" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">SECRETARIA ESCOLAR</label>
-                            </div>
-                    </div>
-                </fieldset>
-            </x-slot>
-            <x-slot:footer>
-                <div x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md cursor-pointer"><i class="bi bi-x-lg"></i> Fechar</div>
-                <button type="submit" class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Editar</button>
-            </x-slot>
-        </x-modal.modal-md>
+        </x-modal.modal-lg>
     </form>
 
     <x-modal.confirmation name="delete-student" title="Confirmação">

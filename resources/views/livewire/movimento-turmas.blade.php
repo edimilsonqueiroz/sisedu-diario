@@ -14,7 +14,7 @@
             <div class="flex mt-5 md:mt-0 px-2 flex-col md:w-[50%] w-full">
                 <label class="text-xl" for="">Ano da Turma</label>
                 <select wire:model.live="year" class="outline-none text-xl border-2 rounded-md p-3 border-gray-400">
-                    <option value="">Todas os anos</option>
+                    <option value="">Todos os anos</option>
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>

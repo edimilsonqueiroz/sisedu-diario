@@ -21,6 +21,6 @@ class Student extends Model
         'motherName',
         'fatherName',
         'dateBirth',
-        'status'
+        'current_class'
     ];
 }

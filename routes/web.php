@@ -31,8 +31,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('/classes', TurmaController::class)->name('turmas');
     Route::get('/disciplines', DisciplinaController::class)->name('disciplinas');
     Route::get('/class-moviment', MovimentoTurmas::class)->name('movimento-turmas');
-    Route::get('/class-moviment/class/{id}', TurmaRegistro::class)->name('turma-registro');
-    Route::get('/class-moviment/class/{id}/content', TurmaConteudo::class)->name('turma-conteudo');
-    Route::get('/class-moviment/class/{id}/frequency', TurmaFrequencia::class)->name('turma-frequencia');
+    Route::get('/class-moviment/class/{turma}', TurmaRegistro::class)->name('turma-registro');
+    Route::get('/class-moviment/class/{turma}/content', TurmaConteudo::class)->name('turma-conteudo');
+    Route::get('/class-moviment/class/{turma}/frequency', TurmaFrequencia::class)->name('turma-frequencia');
     Route::get('/registration', MatriculaController::class)->name('matriculas');
 });
