@@ -38,7 +38,7 @@
             </tr>
         </thead>
         <tbody>
-            
+            @foreach($students as $student)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
@@ -47,23 +47,22 @@
                     </div>
                 </td>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    
+                    {{$student->name}}
                 </th>
                 <td class="px-6 py-4">
-                    
+                    {{$student->email}}
                 </td>
                 <td class="px-6 py-4">
-                    
+                    {{$student->cpf}}
                 </td>
                 <td class="px-6 py-4">
-                    
+                    {{date('d/m/Y', strtotime($student->created_at))}}
                 </td>
                 <td class="px-6 py-4 flex text-[16px]">
-                    <button  class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
-                    <button  class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-person-fill-lock"></i> Permissões</button>
+                    <button wire:click.prevent="openEditStudent({{$student->id}})" class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
                 </td>
             </tr>
-            
+            @endforeach
         </tbody>
     </table>
 </div>
@@ -168,86 +167,87 @@
     </form>
 
     <!-- MODAL EDITAR MATRICULA -->
-     <form>
+     <form wire:submit.prevent="update">
         <x-modal.modal-lg name="editar-aluno" title="Editar aluno">
                 <x-slot:body>
                     <div class="grid grid-cols-1 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Escola</label>
-                            <select class="p-2 outline-none border-2 border-gray-300 rounded">
+                            <select wire:model="form.school" class="p-2 outline-none border-2 border-gray-300 rounded">
                                 <option value="">Selecione uma escola</option>
                                 @foreach($schools as $school)
                                 <option value="{{$school->id}}">{{$school->name}}</option>
                                 @endforeach
                             </select>
-                            
+                            @error('form.school') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Nome</label>
-                            <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                            
+                            <input wire:model="form.name" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col p-1">
                             <label for="">E-mail</label>
-                            <input  class="p-2 outline-none border-2 border-gray-300 rounded" type="email">
-                            
+                            <input wire:model="form.email"  class="p-2 outline-none border-2 border-gray-300 rounded" type="email">
+                            @error('form.email') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Telefone</label>
-                            <input required  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                            
+                            <input wire:model="form.telephone" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.telephone') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col p-1">
                             <label for="">CPF</label>
-                            <input  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                            
+                            <input wire:model="form.cpf"  class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.cpf') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">RG</label>
-                            <input required class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                            
+                            <input wire:model="form.rg" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.rg') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col p-1">
                             <label for="">Sexo</label>
-                            <select class="p-2 outline-none border-2 border-gray-300 rounded">
-                                <option value="">Masculino</option>
-                                <option value="">Feminino</option>
+                            <select wire:model="form.sex" class="p-2 outline-none border-2 border-gray-300 rounded">
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
                             </select>
+                            @error('form.sex') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Nome do pai</label>
-                            <input required class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
-                            
+                            <input wire:model="form.fatherName" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
+                            @error('form.fatherName') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col p-1">
                             <label for="">Nome da mãe</label>
-                            <input type="text" class="p-2 outline-none border-2 border-gray-300 rounded">
-
+                            <input wire:model="form.matherName" type="text" class="p-2 outline-none border-2 border-gray-300 rounded">
+                            @error('form.matherName') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
                             <label for="">Data de Nascimento</label>
-                            <input required class="p-2 outline-none border-2 border-gray-300 rounded" type="date">
-                            
+                            <input wire:model="form.dateBirth" class="p-2 outline-none border-2 border-gray-300 rounded" type="date">
+                            @error('form.dateBirth') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                         <div class="flex flex-col p-1">
                             <label for="">Turma atual</label>
-                            <select class="p-2 outline-none border-2 border-gray-300 rounded">
+                            <select wire:model="form.current_class" class="p-2 outline-none border-2 border-gray-300 rounded">
                                 <option value="1º ANO">1º ANO E.F</option>
                                 <option value="2º ANO">2º ANO E.F</option>
                                 <option value="3º ANO">3º ANO E.F</option>
                                 <option value="4º ANO">4º ANO E.F</option>
                             </select>
-                            
+                            @error('form.current_class') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
                     </div>
                 </x-slot>

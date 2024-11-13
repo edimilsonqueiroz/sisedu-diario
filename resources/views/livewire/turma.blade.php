@@ -67,7 +67,6 @@
                         </td>
                         <td class="px-6 py-4 flex text-[16px]">
                             <button wire:click.prevent="openEditTurma({{$turma->id}})" class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
-                            <button  class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-person-fill-lock"></i> Informações da turma</button>
                         </td>
                     </tr>
                     @endforeach

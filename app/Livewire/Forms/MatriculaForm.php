@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use Livewire\Attributes\Validate;
 use App\Models\Student;
+use Illuminate\Validation\Rule;
 use Livewire\Form;
 
 class MatriculaForm extends Form
@@ -23,7 +24,7 @@ class MatriculaForm extends Form
     #[Validate('required|min:11|max:11|string|unique:students')]
     public string $cpf = "";
 
-    public string $rg = "";
+    public $rg = "";
 
     #[Validate('required', message:'O campo sexo é obrigatório')]
     public string $sex = "";
@@ -45,7 +46,7 @@ class MatriculaForm extends Form
     public ?Student $student;
 
 
-    public function setMatricula(Student $student)
+    public function setStudent(Student $student)
     {
         $this->student = $student;
         $this->school = intval($student->school_id);
@@ -61,6 +62,28 @@ class MatriculaForm extends Form
         $this->current_class = $student->current_class;
     }
 
+    public function updateForm()
+    {
+        $this->validate([
+            'email' => ['required', Rule::unique('students')->ignore($this->student)],
+            'cpf' => ['required', Rule::unique('students')->ignore($this->student)]
+        ]);
+
+        $this->student->update([
+            'school_id' => $this->school,
+            'name' => $this->name,
+            'email' => $this->email,
+            'telephone' => $this->telephone,
+            'cpf' => $this->cpf,
+            'rg' => $this->rg ? $this->rg : null,
+            'sex' => $this->sex,
+            'fatherName' => $this->fatherName,
+            'matherName' => $this->matherName,
+            'dateBirth'=>$this->dateBirth,
+            'current_class' => $this->current_class
+        ]);
+    }
+
     public function store()
     {
         $this->validate();
@@ -70,10 +93,11 @@ class MatriculaForm extends Form
             'email' => $this->email,
             'telephone' => $this->telephone,
             'cpf' => $this->cpf,
-            'rg' => $this->rg,
+            'rg' => $this->rg ? $this->rg : null,
             'sex' => $this->sex,
             'fatherName' => $this->fatherName,
             'matherName' => $this->matherName,
+            'dateBirth'=>$this->dateBirth,
             'current_class' => $this->current_class
         ]);
         $this->reset();

@@ -12,9 +12,11 @@ use App\Livewire\MatriculaController;
 use App\Livewire\MovimentoTurmas;
 use App\Livewire\Profile;
 use App\Livewire\ResetPassword;
+use App\Livewire\TurmaAluno;
 use App\Livewire\TurmaRegistro;
 use App\Livewire\TurmaConteudo;
 use App\Livewire\TurmaFrequencia;
+use App\Livewire\TurmaNota;
 use App\Livewire\ValidateCode;
 
 
@@ -34,5 +36,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('/class-moviment/class/{turma}', TurmaRegistro::class)->name('turma-registro');
     Route::get('/class-moviment/class/{turma}/content', TurmaConteudo::class)->name('turma-conteudo');
     Route::get('/class-moviment/class/{turma}/frequency', TurmaFrequencia::class)->name('turma-frequencia');
+    Route::get('class-moviment/class/{turma}/student', TurmaAluno::class)->name('turma-aluno');
+    Route::get('/class-moviment/class/{turma}/notes', TurmaNota::class)->name('turma-nota');
     Route::get('/registration', MatriculaController::class)->name('matriculas');
 });

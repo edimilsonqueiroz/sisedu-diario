@@ -34,15 +34,22 @@
 
                         <a wire:navigate class="w-full ml-1" href="{{route('turma-frequencia',$turma->id)}}">Frequencia</a>
                     </li>
-                </ul>
-                <div class="bg-slate-700 text-slate-200 pl-4 my-2 py-2 font-semibold">MOVIMENTO</div>
-                <ul class="w-full px-3 text-gray-100 text-lg font-semibold">
-                    <li class="hover:bg-gray-300 w-full flex items-center  hover:text-gray-700 rounded-md p-3">
+                    <li class="hover:bg-gray-300 w-full flex items-center @if($page == 'TurmaNota') my-1 bg-gray-300 text-gray-700 @endif  hover:text-gray-700 rounded-md p-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                         </svg>
 
-                        <a wire:navigate class="w-full ml-1" href="{{route('movimento-turmas')}}">Turmas</a>
+                        <a wire:navigate class="w-full ml-1" href="{{route('turma-nota',$turma->id)}}">Notas</a>
+                    </li>
+                </ul>
+                <div class="bg-slate-700 text-slate-200 pl-4 my-2 py-2 font-semibold">MOVIMENTO</div>
+                <ul class="w-full px-3 text-gray-100 text-lg font-semibold">
+                    <li class="hover:bg-gray-300 w-full flex items-center @if($page == 'TurmaAluno') my-1 bg-gray-300 text-gray-700 @endif   hover:text-gray-700 rounded-md p-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                        </svg>
+
+                        <a wire:navigate class="w-full ml-1" href="{{route('turma-aluno', $turma->id)}}">Enturmação</a>
                     </li>
                 </ul>
                 <div class="bg-slate-700 text-slate-200 pl-4 mb-2 mt-2 py-2 font-semibold">CONFIGURAÇÕES DA CONTA</div>

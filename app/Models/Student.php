@@ -18,8 +18,8 @@ class Student extends Model
         'cpf',
         'rg',
         'sex',
-        'motherName',
         'fatherName',
+        'matherName',
         'dateBirth',
         'current_class'
     ];
