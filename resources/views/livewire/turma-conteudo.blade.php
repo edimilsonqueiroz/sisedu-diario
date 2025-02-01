@@ -1,31 +1,12 @@
 <div class="w-full h-full overflow-x-hidden">
 @include('components/header-turma')
     <div class="p-3 w-full overflow-y-auto">
-        <div class="bg-white p-2 rounded-md shadow-md">
-            <form class="flex">
-                <div class="flex flex-1 flex-col">
-                    <label for="">Conteúdo</label>
-                    <textarea class="border-2 p-2 rounded-md border-gray-400 outline-0" rows="5" name="" id=""></textarea>
-                </div>
-                <div class="flex w-60 ml-4 flex-2 flex-col">
-                    <div class="flex flex-col">
-                        <label for="">Data</label>
-                        <input class="outline-0 border-2 rounded-md p-1 border-gray-400" type="date"> 
-                    </div>
-                    <div class="grid grid-cols-2">
-                        <div class="flex flex-col p-1 justify-between">
-                            <label for="">Hora Inicio</label>
-                            <input class="outline-0 border-2 rounded-md p-1 border-gray-400" type="time"> 
-                        </div>
-                        <div class="flex flex-col p-1 justify-between">
-                            <label for="">Hora Fim</label>
-                            <input class="outline-0 border-2 rounded-md p-1 border-gray-400" type="time"> 
-                        </div>
-                    </div>
-                    
-                    <button class="border-0 py-2 mt-3 rounded-md bg-teal-600 shadow-md">Salvar</button>
-                </div>
-            </form>
+        <div class="bg-white grid md:grid-cols-3 grid-cols-1 gap-4 p-2 rounded-md shadow-md">
+            <input placeholder="Pesquisa por descrição" class="col-span-1 py-2 outline-0 border-2 rounded-md border-gray-300 px-2" type="text"/>
+            <input class="col-span-1 py-2 outline-0 border-2 rounded-md border-gray-300 px-2" type="date"/>
+            <div class="col-span-1 flex justify-center items-center">
+                <button x-data x-on:click="$dispatch('open-modal', { name: 'cadastro-conteudo' })" class="bg-teal-600 text-white py-2 px-3 rounded-md shadow-md border-0">Adicionar conteudo</button>
+            </div>
         </div>
         <div class="bg-white h-96 mt-2 rounded-md shadow-md">
 
@@ -71,5 +52,39 @@
             </div>
         </div>
     </div>
+
 @include('components/footer')
+
+    <form>
+        <x-modal.modal-md name="cadastro-conteudo" title="Cadastrar conteudo">
+            <x-slot:body>
+                <div class="grid md:grid-cols-2 grid-cols-1 gap-2">
+                    <div class="flex flex-col p-1">
+                        <label for="disciplina">Disciplina</label>
+                        <select id="disciplina" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
+                            <option value="">Língua Portuguesa</option>
+                            <option value="">Geografia</option>
+                            <option value="">História</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col p-1">
+                        <label for="data">Data</label>
+                        <input id="data" type="date" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-1 p-1 grid-cols-1 gap-2">
+                    <div class="flex flex-col">
+                        <label for="conteudo">Conteudo</label>
+                        <textarea id="conteudo" class="border-2 p-2 outline-0 border-gray-200 rounded-md" rows="5"></textarea>
+                    </div>
+                </div>
+                
+            </x-slot>
+            <x-slot:footer>
+                <button>Fechar</button>
+                <button class="bg-">Salvar</button>
+            </x-slot>
+        </x-modal.modal-md>
+    </form>
+
 </div>

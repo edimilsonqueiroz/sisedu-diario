@@ -27,12 +27,6 @@
                     E-mail
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    CPF
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Data de Cadastro
-                </th>
-                <th scope="col" class="px-6 py-3">
                     Ação
                 </th>
             </tr>
@@ -52,15 +46,10 @@
                 <td class="px-6 py-4">
                     {{$user->email}}
                 </td>
-                <td class="px-6 py-4">
-                    {{$user->cpf}}
-                </td>
-                <td class="px-6 py-4">
-                    {{date('d/m/Y',strtotime($user->created_at))}}
-                </td>
                 <td class="px-6 py-4 flex text-[16px]">
                     <button wire:click.prevent="openEditUser({{$user->id}})" class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
                     <button wire:click="openPermission({{$user->id}})" class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-person-fill-lock"></i> Permissões</button>
+                    <button wire:click="openInformation({{$user->id}})" class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-info-circle-fill mr-1"></i>Mais Informações</button>
                 </td>
             </tr>
             @endforeach
@@ -232,4 +221,23 @@
             
         </x-slot:footer>
      </x-modal.modal-md>
+
+     <!-- MODAL INFORMAÇÕES DE USUÁRIO -->
+     <x-modal.modal-lg name="information" title="Informações de usuário">
+        <x-slot:body>
+            <div class="grid grid-cols-2 gap-2">
+                <div class="col-span-1 flex">
+                    <label class="font-semibold mr-2" for="nome">Nome:</label>
+                    <div id="nome">{{$this->form->name}}</div>
+                </div>
+                <div class="col-span-1 flex">
+                    <label class="font-semibold mr-2" for="nome">CPF:</label>
+                    <div id="nome">{{$this->form->cpf}}</div>
+                </div>
+            </div>
+        </x-slot>
+        <x-slot:footer>
+            
+        </x-slot:footer>
+     </x-modal.modal-lg>
 </div>

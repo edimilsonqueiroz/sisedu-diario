@@ -16,10 +16,10 @@ return new class extends Migration
             $table->foreignId('school_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('turma_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('discipline_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('bimestre');
-            $table->dateTime('data');
-            $table->boolean('presenca');
-            $table->boolean('falta');
+            $table->foreignId('student_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('bimonthly');
+            $table->dateTime('date');
+            $table->string('frequency');
             $table->timestamps();
         });
     }

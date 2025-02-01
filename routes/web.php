@@ -16,14 +16,17 @@ use App\Livewire\TurmaAluno;
 use App\Livewire\TurmaProfessor;
 use App\Livewire\TurmaRegistro;
 use App\Livewire\TurmaConteudo;
+use App\Livewire\TurmaDisciplina;
 use App\Livewire\TurmaFrequencia;
 use App\Livewire\TurmaNota;
 use App\Livewire\ValidateCode;
+use App\Http\Controllers\PdfController;
 
 
 Route::get('/', LoginController::class)->name('login');
 Route::get('/reset-password',ResetPassword::class)->name('reset-password');
 Route::get('/{cpf}/validate-code',ValidateCode::class)->name('validate-code');
+Route::get('/gerar-pdf',[PdfController::class, 'index'])->name('gerar-pdf');
 
 Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('/', Dashboard::class)->name('dashboard');
@@ -32,13 +35,14 @@ Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('/users', UserController::class)->name('users');
     Route::get('/schools', EscolaController::class)->name('escolas');
     Route::get('/classes', TurmaController::class)->name('turmas');
-    Route::get('/disciplines', DisciplinaController::class)->name('disciplinas');
+    
     Route::get('/class-moviment', MovimentoTurmas::class)->name('movimento-turmas');
     Route::get('/class-moviment/class/{turma}', TurmaRegistro::class)->name('turma-registro');
-    Route::get('/class-moviment/class/{turma}/content', TurmaConteudo::class)->name('turma-conteudo');
-    Route::get('/class-moviment/class/{turma}/frequency', TurmaFrequencia::class)->name('turma-frequencia');
-    Route::get('class-moviment/class/{turma}/student', TurmaAluno::class)->name('turma-aluno');
-    Route::get('class-moviment/class/{turma}/teacher', TurmaProfessor::class)->name('turma-professor');
-    Route::get('/class-moviment/class/{turma}/notes', TurmaNota::class)->name('turma-nota');
+    Route::get('/class-moviment/class/{turma}/content', TurmaConteudo::class)->name('turma-content');
+    Route::get('/class-moviment/class/{turma}/frequency', TurmaFrequencia::class)->name('turma-frequency');
+    Route::get('class-moviment/class/{turma}/student', TurmaAluno::class)->name('turma-student');
+    Route::get('class-moviment/class/{turma}/teacher', TurmaProfessor::class)->name('turma-teacher');
+    Route::get('/class-moviment/class/{turma}/notes', TurmaNota::class)->name('turma-note');
+    Route::get('/class-moviment/class/{turma}/disciplines', TurmaDisciplina::class)->name('turma-disciplines');
     Route::get('/registration', MatriculaController::class)->name('matriculas');
 });

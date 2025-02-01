@@ -95,6 +95,7 @@ class UserForm extends Form
                 'name' => $this->name,
                 'email' => $this->email,
                 'cpf' => $this->cpf,
+                'whatsapp' => $this->whatsapp,
                 'password' => $this->password,
                 'isAdmin' => $this->isAdmin,
                 'isProfessor' => $this->isProfessor,

@@ -7,7 +7,9 @@ use Illuminate\Contracts\Validation\InvokableRule;
 use Illuminate\Contracts\Validation\Rule as RuleContract;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rules\Date;
 use Illuminate\Validation\Rules\Exists;
 use Illuminate\Validation\Rules\Unique;
 
@@ -94,11 +96,17 @@ class ValidationRuleParser
             return Arr::wrap($this->prepareRule($rule, $attribute));
         }
 
-        return array_map(
-            [$this, 'prepareRule'],
-            $rule,
-            array_fill((int) array_key_first($rule), count($rule), $attribute)
-        );
+        $rules = [];
+
+        foreach ($rule as $value) {
+            if ($value instanceof Date) {
+                $rules = array_merge($rules, explode('|', (string) $value));
+            } else {
+                $rules[] = $this->prepareRule($value, $attribute);
+            }
+        }
+
+        return $rules;
     }
 
     /**
@@ -282,7 +290,7 @@ class ValidationRuleParser
      */
     protected static function parseParameters($rule, $parameter)
     {
-        return static::ruleIsRegex($rule) ? [$parameter] : str_getcsv($parameter);
+        return static::ruleIsRegex($rule) ? [$parameter] : str_getcsv($parameter, escape: '\\');
     }
 
     /**
@@ -320,7 +328,7 @@ class ValidationRuleParser
      */
     public static function filterConditionalRules($rules, array $data = [])
     {
-        return collect($rules)->mapWithKeys(function ($attributeRules, $attribute) use ($data) {
+        return (new Collection($rules))->mapWithKeys(function ($attributeRules, $attribute) use ($data) {
             if (! is_array($attributeRules) &&
                 ! $attributeRules instanceof ConditionalRules) {
                 return [$attribute => $attributeRules];
@@ -332,7 +340,7 @@ class ValidationRuleParser
                                 : array_filter($attributeRules->defaultRules($data)), ];
             }
 
-            return [$attribute => collect($attributeRules)->map(function ($rule) use ($data) {
+            return [$attribute => (new Collection($attributeRules))->map(function ($rule) use ($data) {
                 if (! $rule instanceof ConditionalRules) {
                     return [$rule];
                 }

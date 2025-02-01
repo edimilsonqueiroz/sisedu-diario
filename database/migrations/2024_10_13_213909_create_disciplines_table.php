@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('disciplines', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('turma_id');
+            $table->integer('user_id');
+            $table->string('school_days');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->timestamps();
         });
     }

@@ -16,20 +16,20 @@
                             </div>
                             <div class="grid grid-cols-4">
                                 <div class="flex justify-center items-center mx-1 flex-col">
-                                    <label for="">1º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="1_bimestre">1º Bimestre</label>
+                                    <input id="1_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">2º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="2_bimestre">2º Bimestre</label>
+                                    <input id="2_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">3º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="3_bimestre">3º Bimestre</label>
+                                    <input id="3_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">4º Bimestre</label>
-                                    <input type="text"  class="w-28">
+                                    <label for="4_bimestre">4º Bimestre</label>
+                                    <input type="text"  class="w-28 outline-0">
                                 </div>
                             </div>
                         </div>
@@ -39,20 +39,20 @@
                             </div>
                             <div class="grid grid-cols-4">
                                 <div class="flex justify-center items-center mx-1 flex-col">
-                                    <label for="">1º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="1_bimestre">1º Bimestre</label>
+                                    <input id="1_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">2º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="2_bimestre">2º Bimestre</label>
+                                    <input id="2_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">3º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="3_bimestre">3º Bimestre</label>
+                                    <input id="3_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">4º Bimestre</label>
-                                    <input type="text"  class="w-28">
+                                    <label for="4_bimestre">4º Bimestre</label>
+                                    <input type="text"  class="w-28 outline-0">
                                 </div>
                             </div>
                         </div>
@@ -62,20 +62,20 @@
                             </div>
                             <div class="grid grid-cols-4">
                                 <div class="flex justify-center items-center mx-1 flex-col">
-                                    <label for="">1º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="1_bimestre">1º Bimestre</label>
+                                    <input id="1_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">2º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="2_bimestre">2º Bimestre</label>
+                                    <input id="2_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">3º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="3_bimestre">3º Bimestre</label>
+                                    <input id="3_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">4º Bimestre</label>
-                                    <input type="text"  class="w-28">
+                                    <label for="4_bimestre">4º Bimestre</label>
+                                    <input type="text"  class="w-28 outline-0">
                                 </div>
                             </div>
                         </div>
@@ -85,20 +85,20 @@
                             </div>
                             <div class="grid grid-cols-4">
                                 <div class="flex justify-center items-center mx-1 flex-col">
-                                    <label for="">1º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="1_bimestre">1º Bimestre</label>
+                                    <input id="1_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">2º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="2_bimestre">2º Bimestre</label>
+                                    <input id="2_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">3º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="3_bimestre">3º Bimestre</label>
+                                    <input id="3_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">4º Bimestre</label>
-                                    <input type="text"  class="w-28">
+                                    <label for="4_bimestre">4º Bimestre</label>
+                                    <input type="text"  class="w-28 outline-0">
                                 </div>
                             </div>
                         </div>
@@ -108,20 +108,20 @@
                             </div>
                             <div class="grid grid-cols-4">
                                 <div class="flex justify-center items-center mx-1 flex-col">
-                                    <label for="">1º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="1_bimestre">1º Bimestre</label>
+                                    <input id="1_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">2º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="2_bimestre">2º Bimestre</label>
+                                    <input id="2_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">3º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="3_bimestre">3º Bimestre</label>
+                                    <input id="3_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">4º Bimestre</label>
-                                    <input type="text"  class="w-28">
+                                    <label for="4_bimestre">4º Bimestre</label>
+                                    <input type="text"  class="w-28 outline-0">
                                 </div>
                             </div>
                         </div>
@@ -131,27 +131,26 @@
                             </div>
                             <div class="grid grid-cols-4">
                                 <div class="flex justify-center items-center mx-1 flex-col">
-                                    <label for="">1º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="1_bimestre">1º Bimestre</label>
+                                    <input id="1_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">2º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="2_bimestre">2º Bimestre</label>
+                                    <input id="2_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">3º Bimestre</label>
-                                    <input type="text" class="w-28">
+                                    <label for="3_bimestre">3º Bimestre</label>
+                                    <input id="3_bimestre" type="text" class="w-28 outline-0">
                                 </div>
                                 <div class="flex justify-center items-center mx-2 flex-col">
-                                    <label for="">4º Bimestre</label>
-                                    <input type="text"  class="w-28">
+                                    <label for="4_bimestre">4º Bimestre</label>
+                                    <input type="text"  class="w-28 outline-0">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="bg-slate-100 px-3 py-4 rounded-bl-md rounded-br-md flex items-center justify-end h-10 w-full">
-                        <button class="bg-slate-400 border-0 rounded-md mr-3 shadow-md w-24 py-1">Limpar</button>
-                        <button class="bg-teal-600 border-0 rounded-md shadow-md w-24 py-1">Salvar</button>
+                    
                     </div>
                 </div>
             </div>

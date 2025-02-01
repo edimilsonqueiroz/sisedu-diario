@@ -25,6 +25,12 @@ class MatriculaController extends Component
         $this->form->reset();
     }
 
+    public function openInfoStudent(Student $student)
+    {
+        $this->form->setStudent($student);
+        $this->dispatch('open-modal', name:'info-aluno');
+    }
+
     public function openEditStudent(Student $student)
     {
         $this->form->setStudent($student);

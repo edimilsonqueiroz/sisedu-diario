@@ -66,6 +66,12 @@ class UserController extends Component
         $this->dispatch('open-modal', name: 'permission');
     }
 
+    public function openInformation(User $user)
+    {
+        $this->form->setUser($user);
+        $this->dispatch('open-modal', name: 'information');
+    }
+
     public function openEditUser(User $user)
     {
         $this->form->setUser($user);

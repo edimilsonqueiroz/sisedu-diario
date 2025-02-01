@@ -24,15 +24,6 @@
                     Nome
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    E-mail
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    ENDEREÇO
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    TELEFONE
-                </th>
-                <th scope="col" class="px-6 py-3">
                     Ação
                 </th>
             </tr>
@@ -49,18 +40,9 @@
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{$school->name}}
                 </th>
-                <td class="px-6 py-4">
-                    {{$school->email}}
-                </td>
-                <td class="px-6 py-4">
-                    {{$school->address}}
-                </td>
-                <td class="px-6 py-4">
-                    {{$school->telephone}}
-                </td>
                 <td class="px-6 py-4 flex text-[16px]">
                     <button wire:click.prevent="openEditSchool({{$school->id}})" class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
-                    <button  class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-person-fill-lock"></i> Informações</button>
+                    <button  class="font-medium flex mx-2 text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-info-circle-fill mr-1"></i> Informações</button>
                 </td>
             </tr>
             @endforeach

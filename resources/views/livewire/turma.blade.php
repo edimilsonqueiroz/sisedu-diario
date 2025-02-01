@@ -26,12 +26,6 @@
                             Escola
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Data de início
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Data de conclusão
-                        </th>
-                        <th scope="col" class="px-6 py-3">
                             Status
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -56,12 +50,6 @@
                             {{$escola->name}}
                         </td>
                         @endforeach
-                        <td class="px-6 py-4 text-[16px]">
-                            {{date('d/m/Y', strtotime($turma->startDate))}}
-                        </td>
-                        <td class="px-6 py-4 text-[16px]">
-                            {{date('d/m/Y', strtotime($turma->endDate))}}
-                        </td>
                         <td class="px-6 py-4 text-[16px]">
                             @if($turma->active) Aberta @else Fechada @endif
                         </td>

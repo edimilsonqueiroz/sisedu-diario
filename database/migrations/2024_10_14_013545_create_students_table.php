@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('matherName');
             $table->date('dateBirth');
             $table->string('current_class');
+            $table->string('status');
             $table->timestamps();
         });
     }

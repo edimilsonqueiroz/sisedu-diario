@@ -4,7 +4,7 @@
       
 <div class="w-full h-full overflow-hidden flex flex-col shadow bg-white p-5 rounded-lg">
   <div class="w-full flex flex-col-reverse md:flex-row mb-5">
-     <input wire:model.live="query" placeholder="Pesquisar" type="text" class="border-2 outline-none rounded p-2 w-full md:w-[50%] border-gray-300">
+     <input  placeholder="Pesquisar" type="text" class="border-2 outline-none rounded p-2 w-full md:w-[50%] border-gray-300">
      <div class="md:w-[50%] py-5 md:py-0 flex font-semibold items-center justify-center md:justify-center">
         <button x-data x-on:click="$dispatch('open-modal', { name: 'cadastro-aluno' })" class="border-2 border-teal-500 bg-teal-500 rounded-md shadow-md px-2 mx-2"><i class="bi bi-person-fill-add"></i> Nova Matricula</button>
         <button class="border-2 border-red-400 bg-red-400 rounded-md shadow-md px-2 mx-2"><i class="bi bi-trash"></i> Excluir</button>
@@ -25,9 +25,6 @@
                 </th>
                 <th scope="col" class="px-6 py-3">
                     E-mail
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    CPF
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Data de Cadastro
@@ -53,13 +50,11 @@
                     {{$student->email}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$student->cpf}}
-                </td>
-                <td class="px-6 py-4">
                     {{date('d/m/Y', strtotime($student->created_at))}}
                 </td>
                 <td class="px-6 py-4 flex text-[16px]">
                     <button wire:click.prevent="openEditStudent({{$student->id}})" class="font-medium flex text-blue-600 dark:text-blue-500 hover:underline"><i class="bi bi-pencil-fill"></i> Editar</button>
+                    <button wire:click.prevent="openInfoStudent({{$student->id}})" class="font-medium flex text-blue-600 ml-2 dark:text-blue-500 hover:underline"><i class="bi bi-info-circle-fill mr-1"></i> Informações</button>
                 </td>
             </tr>
             @endforeach
@@ -267,6 +262,27 @@
             <button type="submit" class="bg-red-400 border-2 mx-2 px-2 border-red-400 rounded-md shadow-md"><i class="bi bi-check-lg"></i>Confirmar</button>
         </x-slot>
     </x-modal.confirmation>
+
+    <x-modal.modal-lg name="info-aluno" title="Informações do(a) aluno(a)">
+        <x-slot:body>
+            <div class="grid p-2 md:grid-cols-4 grid-cols-2 gap-2">
+                <label class="col-span-2" for=""><span class="font-semibold">CPF:</span> {{$this->form->cpf}}</label>
+                <label class="col-span-1" for=""><span class="font-semibold">RG:</span> {{$this->form->rg}}</label>
+                <label class="col-span-1" for=""><span class="font-semibold">SEXO: </span> {{$this->form->sex}}</label>
+            </div>
+            <div class="grid p-2 grid-cols-4 gap-2">
+               <label class="col-span-2" for=""><span class="font-semibold">NOME DO PAI:</span> {{$this->form->fatherName}}</label>
+               <label class="col-span-2" for=""><span class="font-semibold">NOME DA MÃE:</span> {{$this->form->matherName}}</label>
+            </div>
+            <div class="grid p-2 grid-cols-4 gap-2">
+                <label class="col-span-2" for=""><span class="font-semibold">DATA DE NASCIMENTO:</span> {{date('d/m/Y',strtotime($this->form->dateBirth))}}</label>
+                <label class="col-span-2" for=""><span class="font-semibold">TURMA ATUAL:</span> {{$this->form->current_class}}</label>
+            </div>
+        </x-slot>
+        <x-slot:footer>
+            <div x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md cursor-pointer"><i class="bi bi-x-lg"></i> Fechar</div>
+        </x-slot>
+    </x-modal.modal-lg>
 
 </div>
 
