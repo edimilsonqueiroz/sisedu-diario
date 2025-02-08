@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Frequency extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'school_id',
+        'turma_id',
+        'discipline_id',
+        'student_id',
+        'bimonthly',
+        'date',
+        'frequency'
+    ];
 }

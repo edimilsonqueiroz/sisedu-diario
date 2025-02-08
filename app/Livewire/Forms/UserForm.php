@@ -16,6 +16,9 @@ class UserForm extends Form
     #[Validate('required|string')]
     public string $name = '';
 
+    #[Validate('required', message:'O campo escola é obrigatório')]
+    public $school_id = '';
+
     #[Validate('required|email|string|unique:users')]
     public string $email = '';
 
@@ -31,8 +34,9 @@ class UserForm extends Form
     public bool $isAdmin = false;
     public bool $isProfessor = false;
     public bool $isCoordenador = false;
-    public bool $isSecretaria = false;
+    public bool $isAdministrativo = false;
     public bool $active = false;
+    public $isEscola = '';
     
 
     public  array $userDelete = [];
@@ -58,16 +62,21 @@ class UserForm extends Form
     
     public function setUser(User $user)
     {
+        if($user->school_id != ''){
+            $this->isEscola = "Sim";
+        }
+
         $this->user = $user;
         $this->userId = $user->id;
         $this->name = $user->name;
+        $this->school_id = $user->school_id;
         $this->email = $user->email;
         $this->cpf = $user->cpf;
         $this->whatsapp = $user->whatsapp;
         $this->isAdmin = $user->isAdmin;
         $this->isProfessor = $user->isProfessor;
         $this->isCoordenador = $user->isCoordenador;
-        $this->isSecretaria = $user->isSecretaria;
+        $this->isAdministrativo = $user->isAdministrativo;
     }
 
     public function updateForm()
@@ -81,18 +90,20 @@ class UserForm extends Form
         if(!$this->password){
             $this->user->update([
                 'name' => $this->name,
+                'school_id' => $this->school_id,
                 'email' => $this->email,
                 'cpf' => $this->cpf,
                 'whatsapp' => $this->whatsapp,
                 'isAdmin' => $this->isAdmin,
                 'isProfessor' => $this->isProfessor,
                 'isCoordenador' => $this->isCoordenador,
-                'isSecretaria' => $this->isSecretaria
+                'isAdministrativo' => $this->isAdministrativo
             ]);
         }else{
             $this->password = bcrypt($this->password);
             $this->user->update([
                 'name' => $this->name,
+                'school_id' => $this->school_id,
                 'email' => $this->email,
                 'cpf' => $this->cpf,
                 'whatsapp' => $this->whatsapp,
@@ -100,7 +111,7 @@ class UserForm extends Form
                 'isAdmin' => $this->isAdmin,
                 'isProfessor' => $this->isProfessor,
                 'isCoordenador' => $this->isCoordenador,
-                'isSecretaria' => $this->isSecretaria
+                'isAdministrativo' => $this->isAdministrativo
             ]);
         }
  
@@ -114,6 +125,7 @@ class UserForm extends Form
         $this->validate();
         User::create([
             'name' => $this->name,
+            'school_id' =>$this->school_id,
             'email' => $this->email,
             'cpf' => $this->cpf,
             'whatsapp' => $this->whatsapp,
@@ -121,7 +133,7 @@ class UserForm extends Form
             'isAdmin' => $this->isAdmin ? $this->isAdmin : false,
             'isProfessor' => $this->isProfessor ? $this->isProfessor : false,
             'isCoordenador' => $this->isCoordenador ? $this->isCoordenador : false,
-            'isSecretaria' => $this->isSecretaria ? $this->isSecretaria : false,
+            'isAdministrativo' => $this->isAdministrativo ? $this->isAdministrativo : false,
             'active' => true
         ]);
         $this->reset();

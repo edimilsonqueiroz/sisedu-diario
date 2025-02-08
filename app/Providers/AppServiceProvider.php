@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::define('admin-secretaria', function(User $user){
-            return $user->isAdmin || $user->isSecretaria;
+            return $user->isAdmin || $user->isAdministrativo;
         });
 
         Gate::define('professor', function(User $user){
@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('secretaria', function(User $user){
-            return $user->isSecretaria;
+            return $user->isAdministrativo;
         });
 
         Gate::define('coordenador', function(User $user){

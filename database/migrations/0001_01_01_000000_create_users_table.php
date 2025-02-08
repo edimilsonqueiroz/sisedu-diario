@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('school_id')->nullable();
             $table->string('email')->unique();
             $table->string('cpf')->unique();
             $table->string('whatsapp')->unique();
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->boolean('isAdmin')->nullable();
             $table->boolean('isProfessor')->nullable();
             $table->boolean('isCoordenador')->nullable();
-            $table->boolean('isSecretaria')->nullable();
+            $table->boolean('isAdministrativo')->nullable();
             $table->boolean('isAluno')->nullable();
             $table->boolean('active')->default(true);
             $table->rememberToken();

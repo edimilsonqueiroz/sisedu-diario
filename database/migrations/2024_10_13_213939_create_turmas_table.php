@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('turmas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('school_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
+            $table->foreignId('school_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer('year');
             $table->boolean('active');
             $table->date('startDate');

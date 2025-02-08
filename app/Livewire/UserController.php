@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
+use App\Models\School;
 use Livewire\Attributes\Title;
 use Livewire\WithPagination;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -105,6 +106,7 @@ class UserController extends Component
         $page = 'User';
         return view('livewire.user',[
             'page' => $page,
+            'schools' => School::all(),
             'users' => User::where('name','like','%'.$this->query.'%')
             ->orwhere('email','like','%'.$this->query.'%')
             ->orwhere('cpf','like','%'.$this->query.'%')

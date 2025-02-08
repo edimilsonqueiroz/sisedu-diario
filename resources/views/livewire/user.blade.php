@@ -66,14 +66,34 @@
 
    <!--- MODAIS --->
    <form wire:submit.prevent="save">
-        <x-modal.modal-md name="cadastro-usuario" title="Cadastro de usuário">
+        <x-modal.modal-lg name="cadastro-usuario" title="Cadastro de usuário">
                 <x-slot:body>
-                    <div class="grid grid-cols-1 gap-2">
-                        <div class="flex flex-col p-1">
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="flex col-span-2 flex-col p-1">
                             <label for="">Nome</label>
                             <input required wire:model="form.name" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
                             @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
                         </div>
+                        <div class="flex col-span-1 flex-col p-1">
+                            <label for="">Vincular uma escola?</label>
+                            <select wire:model.live="form.isEscola" class="p-2 outline-none border-2 border-gray-300 rounded">
+                                <option value="Não">Não vincular</option>
+                                <option value="Sim">Vincular</option>
+                            </select>
+                            @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                        @if($this->form->isEscola == 'Sim')
+                        <div class="flex col-span-3 flex-col p-1">
+                            <label for="">Escola</label>
+                            <select wire:model="form.school_id" class="p-2 outline-none border-2 border-gray-300 rounded">
+                                <option value="">Selecione uma escola</option>
+                                @foreach($schools as $school)
+                                <option value="{{$school->id}}">{{$school->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('form.school_id') <span class="text-red-400">{{ $message }}</span> @enderror
+                        </div>
+                        @endif
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col p-1">
@@ -112,7 +132,7 @@
                                 <input  type="checkbox" wire:model="form.isCoordenador" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">COORDENADOR(A)</label>
                             </div>
                             <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox" wire:model="form.isSecretaria" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">SECRETARIA ESCOLAR</label>
+                                <input  type="checkbox" wire:model="form.isAdministrativo" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">SECRETARIA ESCOLAR</label>
                             </div>
                     </div>
                 </fieldset>
@@ -121,19 +141,39 @@
                     <div x-on:click="$dispatch('close-modal')" class="border-2 border-slate-400 bg-slate-400 px-2 rounded-md shadow-md cursor-pointer"><i class="bi bi-x-lg"></i> Fechar</div>
                     <button type="submit" class="bg-teal-500 border-2 mx-2 px-2 border-teal-500 rounded-md shadow-md"><i class="bi bi-check-lg"></i> Cadastrar</button>
                 </x-slot>
-            </x-modal.modal-md>
+            </x-modal.modal-lg>
     </form>
 
     <!-- MODAL EDITAR USUARIO -->
      <form wire:submit.prevent="update">
         <x-modal.modal-md name="editar-usuario" title="Editar usuário">
             <x-slot:body>
-                <div class="grid grid-cols-1 gap-2">
-                    <div class="flex flex-col p-1">
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="flex col-span-2 flex-col p-1">
                         <label for="">Nome</label>
                         <input required wire:model="form.name" class="p-2 outline-none border-2 border-gray-300 rounded" type="text">
                         @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
+                    <div class="flex col-span-1 flex-col p-1">
+                        <label for="">Vinculado uma escola?</label>
+                        <select wire:model.live="form.isEscola" class="p-2 outline-none border-2 border-gray-300 rounded">
+                            <option  value="Não">Não</option>
+                            <option value="Sim">Sim</option>
+                        </select>
+                        @error('form.name') <span class="text-red-400">{{ $message }}</span> @enderror
+                    </div>
+                    @if($this->form->isEscola == 'Sim')
+                    <div class="flex col-span-3 flex-col p-1">
+                        <label for="">Escola</label>
+                        <select wire:model="form.school_id" class="p-2 outline-none border-2 border-gray-300 rounded">
+                            <option value="">Selecione uma escola</option>
+                            @foreach($schools as $school)
+                            <option value="{{$school->id}}">{{$school->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('form.school_id') <span class="text-red-400">{{ $message }}</span> @enderror
+                    </div>
+                    @endif
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div class="flex flex-col p-1">
@@ -172,7 +212,7 @@
                                 <input  type="checkbox" wire:model="form.isCoordenador" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">COORDENADOR(A)</label>
                             </div>
                             <div class="flex items-center grid-cols-1">
-                                <input  type="checkbox" wire:model="form.isSecretaria" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">SECRETARIA ESCOLAR</label>
+                                <input  type="checkbox" wire:model="form.isAdministrativo" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">ASSISTENTE ADMINISTRATIVO</label>
                             </div>
                     </div>
                 </fieldset>
@@ -212,7 +252,7 @@
                                 <input disabled  type="checkbox" wire:model="form.isCoordenador" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">COORDENADOR(A)</label>
                             </div>
                             <div class="flex items-center grid-cols-1">
-                                <input disabled type="checkbox" wire:model="form.isSecretaria" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">SECRETARIA ESCOLAR</label>
+                                <input disabled type="checkbox" wire:model="form.isAdministrativo" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><label class="ml-2" for="">SECRETARIA ESCOLAR</label>
                             </div>
                     </div>
                 </fieldset>

@@ -22,6 +22,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'school_id',
         'email',
         'cpf',
         'whatsapp',
@@ -29,7 +30,7 @@ class User extends Authenticatable
         'isAdmin',
         'isProfessor',
         'isCoordenador',
-        'isSecretaria',
+        'isAdministrativo',
         'active'
     ];
 

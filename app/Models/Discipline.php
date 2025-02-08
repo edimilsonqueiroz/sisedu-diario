@@ -11,6 +11,11 @@ class Discipline extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'turma_id',
+        'user_id',
+        'school_days',
+        'start_time',
+        'end_time'
     ];
 }

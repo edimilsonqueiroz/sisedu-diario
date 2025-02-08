@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use App\Models\Turma;
+use App\Models\User;
 
 class TurmaRegistro extends Component
 {
@@ -19,9 +20,12 @@ class TurmaRegistro extends Component
     public function render()
     {
         $page = "TurmaRegistro";
+        $teachers = User::where('isProfessor', true)->get();
+        
         return view('livewire.turma-registro',[
             'page'=> $page,
-            'turma'=>$this->turma
+            'turma'=>$this->turma,
+            'teachers'=> $teachers
         ]);
     }
 }
