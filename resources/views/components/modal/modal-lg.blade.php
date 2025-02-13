@@ -13,7 +13,7 @@
     <div x-on:click="$dispatch('close-modal')" class="fixed inset-0 bg-gray-800 opacity-20"></div>
     <div class="bg-white shadow-md rounded m-auto absolute z-50 md:max-w-[800px] md:w-[800px] w-[95%]  max-w-[95%]">
         <div class="flex h-auto flex-col">
-            <div class="h-10 max-h-10 p-3 flex items-center bg-slate-100 rounded-tl rounded-tr">
+            <div class="h-12 max-h-12 p-3 flex items-center bg-slate-100 rounded-tl rounded-tr">
                 @if(isset($title))
                 <div class="py-3 flex items-center font-semibold uppercase justify-center">{{ $title}}</div>
                 @endif
@@ -23,7 +23,7 @@
                     {{ $body }}
                 </div>
             </div>
-            <div class="h-10  max-h-10 p-3 flex items-center text-xl justify-end rounded-bl rounded-br bg-slate-100">{{ $footer }}</div>
+            <div class="h-16  max-h-16 px-3 flex items-center text-xl justify-end rounded-bl rounded-br bg-slate-100">{{ $footer }}</div>
         </div>
     </div>
 </div>

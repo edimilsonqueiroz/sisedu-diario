@@ -11,16 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('disciplines', function (Blueprint $table) {
+        Schema::create('turma_user', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->foreignId('turma_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('school_days');
-            $table->text('days_week');
-            $table->time('start_time');
-            $table->time('end_time');
-            $table->string('status')->default('Aberta');
             $table->timestamps();
         });
     }
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('disciplines');
+        Schema::dropIfExists('turma_user');
     }
 };

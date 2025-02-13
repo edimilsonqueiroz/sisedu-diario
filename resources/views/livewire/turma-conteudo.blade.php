@@ -62,48 +62,53 @@
             </div>
         </div>
     </div>
+    
 
-@include('components/footer')
-
-    <form>
+    <form wire:submit.prevent="save">
         <x-modal.modal-md name="cadastro-conteudo" title="Cadastrar conteudo">
             <x-slot:body>
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-2">
                     <div class="flex flex-col p-1 col-span-2">
                         <label for="disciplina">Disciplina</label>
-                        <select id="disciplina" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
+                        <select wire:model="form.discipline_id" id="disciplina" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
                             <option value="">Língua Portuguesa</option>
                             <option value="">Geografia</option>
                             <option value="">História</option>
                         </select>
+                        @error('form.discipline_id') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                     <div class="flex flex-col p-1 col-span-1">
                         <label for="bimestre">Bimestre</label>
-                        <select id="bimestre" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
+                        <select wire:model="form.bimonthly" id="bimestre" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
                             <option value="1º Bimestre">1º Bimestre</option>
                             <option value="2º Bimestre">2º Bimestre</option>
                             <option value="3º Bimestre">3º Bimestre</option>
                             <option value="4º Bimestre">4º Bimestre</option>
                         </select>
+                        @error('form.bimonthly') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                     <div class="flex flex-col p-1 col-span-1">
                         <label for="data">Data</label>
-                        <input id="data" type="date" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
+                        <input wire:model="form.date" id="data" type="date" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
+                        @error('form.date') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="grid md:grid-cols-1 p-1 grid-cols-1 gap-2">
                     <div class="flex flex-col">
                         <label for="conteudo">Conteudo</label>
-                        <textarea id="conteudo" class="border-2 p-2 outline-0 border-gray-200 rounded-md" rows="5"></textarea>
+                        <textarea wire:model="content" id="conteudo" class="border-2 p-2 outline-0 border-gray-200 rounded-md" rows="5"></textarea>
+                        @error('form.content') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 
             </x-slot>
             <x-slot:footer>
-                <button class="bg-slate-400 rounded-md px-3 py-1 mb-2 border-2 border-slate-400"><i class="bi bi-x-circle"></i> Fechar</button>
-                <button class="bg-teal-600 border-2 border-teal-600 ml-2 mb-2 rounded-md px-3 py-1"><i class="bi bi-check2-circle"></i> Salvar</button>
+                <div x-on:click="$dispatch('close-modal')" class="bg-slate-400 cursor-pointer rounded-md px-3 py-1 mb-2 border-2 border-slate-400"><i class="bi bi-x-circle"></i> Fechar</div>
+                <button type="submit" class="bg-teal-600 border-2 border-teal-600 ml-2 mb-2 rounded-md px-3 py-1"><i class="bi bi-check2-circle"></i> Salvar</button>
             </x-slot>
         </x-modal.modal-md>
     </form>
 
+
+@include('components/footer')
 </div>

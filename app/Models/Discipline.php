@@ -15,7 +15,9 @@ class Discipline extends Model
         'turma_id',
         'user_id',
         'school_days',
+        'days_week',
         'start_time',
-        'end_time'
+        'end_time',
+        'status'
     ];
 }
