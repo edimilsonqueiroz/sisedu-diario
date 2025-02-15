@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('dateBirth');
             $table->string('current_class');
             $table->string('status');
+            $table->boolean('enturmacao');
             $table->timestamps();
         });
     }

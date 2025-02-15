@@ -9,6 +9,8 @@ use App\Livewire\Forms\ConteudoForm;
 use Livewire\WithPagination;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\On;
+use App\Models\Discipline;
+use App\Models\Content;
 
 class TurmaConteudo extends Component
 {
@@ -35,6 +37,11 @@ class TurmaConteudo extends Component
     {
         $this->form->setTurma($this->turma);
         $this->form->store();
+        $this->alert('success', 'Conteudo cadastrado com sucesso!',[
+            'position' => 'top',
+            'toast' => true,
+            'width' => 400
+        ]);
     }
 
     
@@ -42,8 +49,12 @@ class TurmaConteudo extends Component
     public function render()
     {
         $page = "TurmaConteudo";
+        $disciplines = Discipline::where('turma_id', intval($this->turma->id))->get();
+
         return view('livewire.turma-conteudo',[
-            "page"=>$page
+            "page"=>$page,
+            "contents" => Content::where('turma_id', $this->turma->id)->get(),
+            "disciplines" => $disciplines
         ]);
     }
 }

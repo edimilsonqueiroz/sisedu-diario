@@ -25,36 +25,13 @@
                         <h1 class="text-xl">Conteudos registrados</h1>
                     </div>
                     <div class="flex-1 w-full overflow-y-auto p-2">
-                        <div class="bg-slate-200 my-1 flex items-center justify-between rounded-md p-2">
-                            <div class="flex-1 flex-col">
-                                <h3 class="uppercase font-semibold">Aula 1</h3>
+                        @foreach($contents as $content)
+                            <div class="bg-slate-200 my-1 flex items-center justify-between rounded-md p-2">
+                                <div class="flex-1 flex-col">
+                                    <h3 class="uppercase font-semibold">{{$content->content}}</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div class="bg-slate-200 my-1 flex items-center rounded-md p-2">
-                            <div class="flex-1 flex-col">
-                                <h3 class="uppercase font-semibold">Aula 2</h3>
-                            </div>
-                        </div>
-                        <div class="bg-slate-200 my-1 flex items-center rounded-md p-2">
-                            <div class="flex-1 flex-col">
-                                <h3 class="uppercase font-semibold">Aula 4</h3>
-                            </div>
-                        </div>
-                        <div class="bg-slate-200 my-1 flex items-center rounded-md p-2">
-                            <div class="flex-1 flex-col">
-                                <h3 class="uppercase font-semibold">Aula 5</h3>
-                            </div>
-                        </div>
-                        <div class="bg-slate-200 w-full my-1 flex items-center rounded-md p-2">
-                            <div class="flex-1 flex-col">
-                                <h3 class="uppercase font-semibold">Aula 6</h3>
-                            </div>
-                        </div>
-                        <div class="bg-slate-200 my-1 flex items-center justify-between rounded-md p-2">
-                            <div class="flex-1 flex-col">
-                                <h3 class="uppercase font-semibold">Aula 7</h3>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="bg-slate-100 px-3 py-4 rounded-bl-md rounded-br-md flex items-center justify-end h-10 w-full">
                         
@@ -71,19 +48,21 @@
                     <div class="flex flex-col p-1 col-span-2">
                         <label for="disciplina">Disciplina</label>
                         <select wire:model="form.discipline_id" id="disciplina" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
-                            <option value="">Língua Portuguesa</option>
-                            <option value="">Geografia</option>
-                            <option value="">História</option>
+                            <option value="">Selecione uma disciplina</option>
+                            @foreach($disciplines as $discipline)
+                                <option value="{{$discipline->id}}">{{$discipline->name}}</option>
+                            @endforeach
                         </select>
                         @error('form.discipline_id') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                     <div class="flex flex-col p-1 col-span-1">
                         <label for="bimestre">Bimestre</label>
                         <select wire:model="form.bimonthly" id="bimestre" class="border-2 p-2 outline-0 border-gray-200 rounded-md">
-                            <option value="1º Bimestre">1º Bimestre</option>
-                            <option value="2º Bimestre">2º Bimestre</option>
-                            <option value="3º Bimestre">3º Bimestre</option>
-                            <option value="4º Bimestre">4º Bimestre</option>
+                            <option value="">Selecione o bimestre</option>
+                            <option value="1">1º Bimestre</option>
+                            <option value="2">2º Bimestre</option>
+                            <option value="3">3º Bimestre</option>
+                            <option value="4">4º Bimestre</option>
                         </select>
                         @error('form.bimonthly') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
@@ -96,7 +75,7 @@
                 <div class="grid md:grid-cols-1 p-1 grid-cols-1 gap-2">
                     <div class="flex flex-col">
                         <label for="conteudo">Conteudo</label>
-                        <textarea wire:model="content" id="conteudo" class="border-2 p-2 outline-0 border-gray-200 rounded-md" rows="5"></textarea>
+                        <textarea wire:model="form.content" id="conteudo" class="border-2 p-2 outline-0 border-gray-200 rounded-md" rows="5"></textarea>
                         @error('form.content') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                 </div>

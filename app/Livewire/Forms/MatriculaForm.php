@@ -98,7 +98,9 @@ class MatriculaForm extends Form
             'fatherName' => $this->fatherName,
             'matherName' => $this->matherName,
             'dateBirth'=>$this->dateBirth,
-            'current_class' => $this->current_class
+            'current_class' => $this->current_class,
+            'status' => 'Ativo',
+            'enturmacao' => false
         ]);
         $this->reset();
     }

@@ -7,6 +7,7 @@ use Livewire\Form;
 use Livewire\Attributes\Locked;
 use Illuminate\Validation\Rule;
 use App\Models\Turma;
+use App\Models\Content;
 
 
 class ConteudoForm extends Form
@@ -33,8 +34,8 @@ class ConteudoForm extends Form
 
     public function setTurma(Turma $turma) 
     {
-        $this->school_id = $turma->school_id;
-        $this->turma_id = $turma->id;
+        $this->school_id = intval($turma->school_id);
+        $this->turma_id = intval($turma->id);
     }
 
     public function setContent()
@@ -45,5 +46,15 @@ class ConteudoForm extends Form
     public function store()
     {
         $this->validate();
+        Content::create([
+            'school_id' => $this->school_id,
+            'turma_id' => $this->turma_id,
+            'discipline_id' => $this->discipline_id,
+            'bimonthly' => intval($this->bimonthly),
+            'date' => $this->date,
+            'content' => $this->content
+        ]);
+
+        $this->reset();
     }
 }

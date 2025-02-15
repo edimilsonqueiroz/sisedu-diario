@@ -24,17 +24,30 @@ class TurmaProfessor extends Component
     {  
         if($this->teachers_school){
             foreach($this->teachers_school as $teacher){
-                TurmaUser::create([
-                    'turma_id' => intval($this->turma->id),
-                    'user_id' => intval($teacher)
-                ]);
+                $userTurma = TurmaUser::where('turma_id', intval($this->turma->id))->where('user_id', intval($teacher))->first();
+                if($userTurma){
+                    
+                    return $this->alert('warning', 'Professor(a) já está vinculado(a) na turma!',[
+                        'position' => 'top',
+                        'toast' => true,
+                        'width' => 500
+                    ]);
+                    
+                }else{
+                    TurmaUser::create([
+                        'turma_id' => intval($this->turma->id),
+                        'user_id' => intval($teacher)
+                    ]);
+                    $this->teachers_school = [];
+                    $this->alert('success', 'Professor(es) adicionado na turma com sucesso!',[
+                        'position' => 'top',
+                        'toast' => true,
+                        'width' => 500
+                    ]);
+                }
             }
-            $this->teachers_school = [];
-            $this->alert('success', 'Professor(es) adicionado na turma com sucesso!',[
-                'position' => 'top',
-                'toast' => true,
-                'width' => 500
-            ]);
+            
+            
         }else{
             $this->alert('warning', 'Você precisa selecionar um(a) professor(a)',[
                 'position' => 'top',

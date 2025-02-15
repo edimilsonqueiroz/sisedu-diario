@@ -8,12 +8,15 @@
                         <h1 class="text-xl">Alunos sem turma</h1>
                     </div>
                     <div class="flex-1 w-full overflow-y-auto p-2">
-                        <div class="bg-slate-200 my-1 flex items-center rounded-md p-2">
-                            <div class="flex items-center p-2"><input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 rounded-lg outline-0"></div>
-                            <div class="flex flex-col">
-                                <h3 class="uppercase font-semibold">Carlos Augusto Medeiros</h3>
+                        <input placeholder="Pesquisar pelo nome" class="outline-0 border-2 border-gray-200 rounded-md my-3 p-2 w-full" type="text"/>
+                        @foreach($students as $student)
+                            <div class="bg-slate-200 my-1 flex items-center rounded-md p-2">
+                                <div class="flex items-center p-2"><input wire:model="student_school" id="checked-checkbox" name="student_school[]" type="checkbox" value="{{$student->id}}" class="w-4 h-4 rounded-lg outline-0"></div>
+                                <div class="flex flex-col">
+                                    <h3 class="uppercase font-semibold">{{$student->name}}</h3>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="bg-slate-100 px-3 rounded-bl-md rounded-br-md flex items-center h-10 w-full"></div>
                 </div>
@@ -30,12 +33,15 @@
                         <h1 class="text-xl">Alunos da turma</h1>
                     </div>
                     <div class="flex-1 w-full overflow-y-auto p-2">
+                        <input placeholder="Pesquisar pelo nome" class="outline-0 border-2 border-gray-200 rounded-md my-3 p-2 w-full" type="text"/>
+                        @foreach($students_turma as $student_turma)
                         <div class="bg-slate-200 my-1 flex items-center rounded-md p-2">
-                            <div class="flex items-center p-2"><input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 rounded-lg outline-0"></div>
+                            <div class="flex items-center p-2"><input wire:model="student_turma" id="checked-checkbox" name="student_turma[]" type="checkbox" value="{{$student_turma->id}}" class="w-4 h-4 rounded-lg outline-0"></div>
                             <div class="flex flex-col">
-                                <h3 class="uppercase font-semibold">Carlos Augusto Medeiros</h3>
+                                <h3 class="uppercase font-semibold">{{$student_turma->name}}</h3>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                     <div class="bg-slate-100 px-3 rounded-bl-md rounded-br-md flex items-center h-10 w-full"></div>
                 </div>

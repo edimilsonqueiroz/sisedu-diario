@@ -5,6 +5,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Student extends Model
 {
@@ -22,6 +23,12 @@ class Student extends Model
         'matherName',
         'dateBirth',
         'current_class',
-        'status'
+        'status',
+        'enturmacao'
     ];
+
+    public function turmas(): BelongsToMany
+    {
+        return $this->belongsToMany(Turma::class);
+    }
 }
